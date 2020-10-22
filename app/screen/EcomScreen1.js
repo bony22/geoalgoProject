@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity, Pressable,ImageBackground  } from 'react-native'
 import { Card, Left, CardItem, Item, Input, Label, Button, Right, Container, Icon } from 'native-base';
+import LinearGradient from 'react-native-linear-gradient';
+import {colors} from '@Component/Color';
 
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -137,7 +139,7 @@ export default class EcomScreen1 extends Component {
     render() {
         return (
             <Container style={{flex:1,backgroundColor:'#fff'}}>
-                <View style={{
+                {/* <View style={{
                     //  backgroundColor: '#0000cd',
                     // backgroundColor: '#D77FA3',
                      // backgroundColor: '#ff0000',
@@ -148,7 +150,26 @@ export default class EcomScreen1 extends Component {
                     //   backgroundColor: 'black',
                      height: 65, width: '100%', flexDirection: 'row', alignItems: 'center',
                     justifyContent: 'space-evenly', elevation: 10
-                }}>
+                }}> */}
+                     <LinearGradient
+//   start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 0.5}}
+start={{x: 0.03, y: 0.0}} end={{x: 1, y: 1}}
+ 
+//   colors={['rgba(0,0,0,.1)','rgba(0,0,0,1)']}
+// colors={['#9054D7', '#AE42DF', '#EA95BA','#F34C9A', '#EC0D76']}
+// colors={['#6FD23D','#534CDE', '#7E65E2', '#A885F6', '#7DB2F0',]}
+colors={[colors.headercolor31,colors.headercolor32,]}
+  style={{
+    
+         backgroundColor: '#4b0082',
+   
+   
+     height: 65, width: '100%', flexDirection: 'row', alignItems: 'center',
+    justifyContent: 'space-evenly', elevation: 10
+}}
+ 
+  >
+                  
                     <View style={{ hight: 40, width: '15%', justifyContent: 'center', alignItems: 'center' }}>
                     <Pressable onPress={() => this.props.navigation.openDrawer()}>
                         <Icon name="md-menu-outline"
@@ -182,8 +203,9 @@ export default class EcomScreen1 extends Component {
                             style={{ fontSize: 25, color: 'white' }}
                         />
                     </TouchableOpacity>
+                    </LinearGradient>
 
-                </View>
+                {/* </View> */}
 
 
               
@@ -386,7 +408,7 @@ export default class EcomScreen1 extends Component {
 
 
                             </View> */}
-                            <TouchableOpacity
+                            {/* <TouchableOpacity
           activeOpacity={0.7}
         //   onPress={clickHandler}
           style={styles.touchableOpacityStyle}>
@@ -397,7 +419,7 @@ export default class EcomScreen1 extends Component {
            
             style={styles.floatingButtonStyle}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
 
 

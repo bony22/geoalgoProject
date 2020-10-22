@@ -3,6 +3,8 @@ import { View, StyleSheet, Image, Text,ScrollView,Dimensions, Pressable,Touchabl
 import { Container, Header, Footer, Left, Body, Right, Button, Icon, Title } from 'native-base';
 // import {  } from 'react-native-gesture-handler';
 // import { Icon } from 'react-native-elements';
+import {colors} from '@Component/Color';
+import LinearGradient from 'react-native-linear-gradient';
 
 const {width}=Dimensions.get('window').width - 80
 
@@ -164,15 +166,24 @@ export default class CustomDrawer extends Component {
     return (
       <View style={styles.sideMenuContainer}>
 
+<LinearGradient
+           colors={[colors.headercolor31,colors.headercolor32,]}
+          // colors={[colors.headercolor31,colors.headercolor32,colors.headercolor33,colors.headercolor34]}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 1}}
+          style={{height:140,width:width, flexDirection:'row',justifyContent:'flex-start',alignItems:'center',
+          
+          }}>
 
-          <View style={{height:140,width:width, flexDirection:'row',justifyContent:'flex-start',alignItems:'center',
+
+          {/* <View style={{height:140,width:width, flexDirection:'row',justifyContent:'flex-start',alignItems:'center',
           // backgroundColor:'#0000cd',
           // backgroundColor:'#ff0000'
           //  backgroundColor: '#e91e63',
           //  backgroundColor: '#ff5722',
                backgroundColor: '#4b0082',
          
-          }}>
+          }}> */}
       
        
        
@@ -201,13 +212,13 @@ export default class CustomDrawer extends Component {
        
         
     </View>
+    </LinearGradient>
 
-
-        <Right>
+        {/* <Right>
       
         <Icon name='keyboard-arrow-right' type='MaterialIcons' style={{ fontSize:40,color: 'white',marginLeft:20}} />
-        </Right>
-        </View>
+        </Right> */}
+        {/* </View> */}
         {/*Divider between Top Image and Sidebar Option*/}
         <View
           style={{

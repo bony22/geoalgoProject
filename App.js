@@ -1,22 +1,16 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 
 import { Text, View,Icon ,Dimensions} from 'react-native'
 
 import React, { Component } from 'react';
-// import SplashScreen from 'react-native-splash-screen'
+import SplashScreen from 'react-native-splash-screen'
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import {DraweItems, createDrawerNavigator} from 'react-navigation-drawer'
 
 import EcomScreen1 from './app/screen/EcomScreen1'
 import ListItem from './app/screen/ListItem'
+ import SingleItem from './app/screen/SingleItem'
+ import ProductFilter from './app/screen/ProductFilter';
 import CustomDrawer from './app/screen/CustomDrawer';
 
 // const App: () => React$Node = () => {
@@ -62,6 +56,8 @@ const ScreenStack = createStackNavigator(
     // Home:EcomScreen1,
     ListItem:ListItem,
     Drawer: AppDrawer,
+    Filter:ProductFilter
+    // SingleItem:SingleItem,
     
 
   },
@@ -76,11 +72,11 @@ const AppContainer = createAppContainer(ScreenStack);
 
 export default class App extends Component {
 
-  // componentDidMount(){
+  componentDidMount(){
 
-  //   SplashScreen.hide();
+    SplashScreen.hide();
     
-  //   }
+    }
 
   
 
