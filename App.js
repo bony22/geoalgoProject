@@ -10,6 +10,7 @@ import {DraweItems, createDrawerNavigator} from 'react-navigation-drawer'
 import EcomScreen1 from './app/screen/EcomScreen1'
 import ListItem from './app/screen/ListItem'
  import SingleItem from './app/screen/SingleItem'
+ import Payment from './app/screen/Payment'
  import ProductFilter from './app/screen/ProductFilter';
 import CustomDrawer from './app/screen/CustomDrawer';
 
@@ -56,8 +57,9 @@ const ScreenStack = createStackNavigator(
     // Home:EcomScreen1,
     ListItem:ListItem,
     Drawer: AppDrawer,
-    Filter:ProductFilter
-    // SingleItem:SingleItem,
+    Filter:ProductFilter,
+    Payment:Payment
+    
     
 
   },

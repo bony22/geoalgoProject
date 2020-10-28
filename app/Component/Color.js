@@ -29,8 +29,8 @@ export const colors =
 // headercolor31:'#085472',
 //  headercolor32:'#0f99d1',
 
- headercolor31:'#0a708a',
-  headercolor32:'#0faad1',
+//  headercolor31:'#0a708a',
+//   headercolor32:'#0faad1',
 
 
 
@@ -64,8 +64,8 @@ export const colors =
 // headercolor31:'#00005d',
 // headercolor32:'#1414ff',
 
-// headercolor31:'#005ab3',
-// headercolor32:'#4da6ff',
+headercolor31:'#005ab3',
+headercolor32:'#4da6ff',
 
 // headercolor31:'#002db3',
 // headercolor32:'#4d79ff',

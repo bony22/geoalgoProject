@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, Text, StyleSheet, Dimensions, TextInput, Image, ImageBackground, Modal, TouchableOpacity, ScrollView, ToastAndroid,
+    View, Text, StyleSheet, Dimensions, TextInput, Image, ImageBackground, Modal, TouchableOpacity, ScrollView, ToastAndroid,ActivityIndicator,
     Pressable,
 } from 'react-native';
 import { Card, Left, CardItem, Item, Input, Icon, Label, Button, Right, Picker, Container, Fab } from 'native-base';
@@ -8,7 +8,7 @@ import SingleItem from '../screen/SingleItem'
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '@Component/Color';
 import ProductFilter from './ProductFilter';
-
+// import MyFunction from '../service/MyFunction'
 //import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 // import NavigationService from '../../service/Navigation';
 // import MyFunction from '../../service/MyFunction';
@@ -25,6 +25,8 @@ export default class ListItem extends Component {
             // active: false,
             modalVisible: false,
             modalVisible1: false,
+            data:[],
+            indicatorLoading:true,
 
 
             VariusItems1: [
@@ -50,12 +52,35 @@ export default class ListItem extends Component {
         };
     }
 
+
+    async componentDidMount(){
+   
+    
+        await this.listItem1()
+       
+      
+    }
     showConfirm() {
         this.setState({ modalVisible: true });
     }
     hideConfirm() {
         this.setState({ modalVisible: false });
     }
+
+    listItem1 = async() =>{
+    
+        let resp =await fetch('http://www.adroitinclusive.com:81/data.php')
+        let respJson= await resp.json()
+        this.setState({
+            data:respJson,
+            indicatorLoading:false,
+        
+          
+        })
+        //console.log(respJson)
+    }
+ 
+    
 
 
     clickHandler = () => {
@@ -71,7 +96,7 @@ export default class ListItem extends Component {
 
 
     list1 = () => {
-        return this.state.VariusItems1.map((element, index) => {
+        return this.state.data.map((element, index) => {
             return (
                 <View key={index}>
 
@@ -83,9 +108,11 @@ export default class ListItem extends Component {
                             // backgroundColor:'seashell'
                         }}>
                             <View style={{ width: '20%', marginVertical: 8 }}>
-                                <Image source={element.product}
+                                <Image source={{
+                                    uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQC0Yry5sRpC6f-RSV6cdSmf9ooukKOYk8CQ&usqp=CAU'}}
                                     style={{ height: 50, width: 50, alignSelf: 'center' }}
                                 />
+                                {/* <Text>{element.ID}</Text> */}
                             </View>
                             <View style={{ width: '80%', flexDirection: 'row' }}>
                                 <View style={{ justifyContent: 'center', marginHorizontal: 2, width: '65%' }}
@@ -99,12 +126,12 @@ export default class ListItem extends Component {
                                         // color:'#006565',
                                         color: 'black',
                                         fontSize: 16, letterSpacing: 1
-                                    }}>{element.productname}</Text>
+                                    }}>{element.name}</Text>
                                     <Text numberOfLines={1} style={{
                                         // color:'#006565',
                                         color: 'black',
                                         fontSize: 12, letterSpacing: 1
-                                    }}>{element.brand}</Text>
+                                    }}>{element.type}</Text>
 
                                 </View>
 
@@ -277,7 +304,7 @@ export default class ListItem extends Component {
 
                         <TouchableOpacity
                             style={{ hight: 40, width: '15%', justifyContent: 'center', alignItems: 'center' }}
-                        // onPress={() => this.props.navigation.navigate('login')}
+                        onPress={() => this.props.navigation.navigate('Payment')}
                         >
                             <Icon name="shoppingcart"
 
@@ -289,15 +316,18 @@ export default class ListItem extends Component {
 
                     {/* </View> */}
 
-
+                    {/* {this.state.indicatorLoading ? (
+					<View style={[styles.centerElement, {height: 500}]}>
+						<ActivityIndicator size="large" color="#006B15" />
+					</View>
+				) : ( */}
 
                     <ScrollView>
-
-
                         {this.list1()}
 
-
                     </ScrollView>
+
+                {/* )} */}
 
 
 
@@ -374,5 +404,10 @@ const styles = StyleSheet.create({
         color: 'white'
         //backgroundColor:'black'
     },
+
+    centerElement:
+    {
+    flex:1,  justifyContent: 'center', alignItems: 'center'
+     },
 
 })

@@ -12,6 +12,7 @@ export default class EcomScreen1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data:[],
             VariusItems: [
                 { product: require('@asset/flynit.jpg'), catagory: 'Fruits & veggi' },
                 { product: require('@asset/jew.jpg'), productname: ' Jewelry', brand: "Nike", price: '$120' },
@@ -41,6 +42,26 @@ export default class EcomScreen1 extends Component {
             ]
                
         };
+    }
+
+
+    async componentDidMount(){
+   
+    
+        await this.listItem1()
+       
+      
+    }
+
+    
+    listItem1 = async() =>{
+    
+        let resp =await fetch('http://www.adroitinclusive.com:81/data.php')
+        let respJson= await resp.json()
+        this.setState({
+            data:respJson
+        })
+        console.log(respJson)
     }
 
 
@@ -501,13 +522,4 @@ const styles = StyleSheet.create({
         //backgroundColor:'black'
       },
 })
-
-
-
-
-
-
-
-
-
 
