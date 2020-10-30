@@ -316,18 +316,18 @@ export default class ListItem extends Component {
 
                     {/* </View> */}
 
-                    {/* {this.state.indicatorLoading ? (
+                    {this.state.indicatorLoading ? (
 					<View style={[styles.centerElement, {height: 500}]}>
-						<ActivityIndicator size="large" color="#006B15" />
+						<ActivityIndicator size="large" color="#005ab3" />
 					</View>
-				) : ( */}
+				) : (
 
                     <ScrollView>
                         {this.list1()}
 
                     </ScrollView>
 
-                {/* )} */}
+                )}
 
 
 

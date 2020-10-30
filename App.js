@@ -74,11 +74,21 @@ const AppContainer = createAppContainer(ScreenStack);
 
 export default class App extends Component {
 
-  componentDidMount(){
+  constructor(){  
+    super();  
+    this.state={  
+    isVisible : true,  
+   }  
+ }  
 
+ componentDidMount() {
+  // do stuff while splash screen is shown
+    // After having done stuff (such as async tasks) hide the splash screen
+    setTimeout(()=>{ 
     SplashScreen.hide();
+    },3000);
     
-    }
+}
 
   
 

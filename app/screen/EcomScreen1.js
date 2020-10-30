@@ -45,13 +45,13 @@ export default class EcomScreen1 extends Component {
     }
 
 
-    async componentDidMount(){
+    // async componentDidMount(){
    
     
-        await this.listItem1()
+    //     await this.listItem1()
        
       
-    }
+    // }
 
     
     listItem1 = async() =>{
@@ -61,7 +61,7 @@ export default class EcomScreen1 extends Component {
         this.setState({
             data:respJson
         })
-        console.log(respJson)
+        // console.log(respJson)
     }
 
 
@@ -104,14 +104,16 @@ export default class EcomScreen1 extends Component {
                  
                     <View style={{ height:100, width:'100%',justifyContent:'center',alignItems:'center', elevation:10, }}>
 
-                    <View style={styles.boxView1} >
+                    <Pressable style={styles.boxView1} 
+                    onPress={() => this.props.navigation.navigate('ListItem')}
+                    >
                         <Image
                             source={element.product}
                             style={{
                                 height: 90, width: 120, borderRadius: 25,
                             }}
                         />
-                    </View>
+                    </Pressable>
                     </View>
                   
                 </View>

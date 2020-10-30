@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity, Pressable, ImageBackground } from 'react-native'
+import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity, Pressable, ImageBackground,Alert } from 'react-native'
 import { Card, Left, CardItem, Item, Input, Label, Button, Right, Container, Icon } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '@Component/Color';
 
+import stripe from 'tipsi-stripe';
+
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
 const { width } = Dimensions.get("window")
+
+stripe.setOptions({
+    publishableKey: 'pk_test_51HguXkHS38lgZ594oguG9XGgdbHJLwNpDZ1SjKX3B4qGpL5I5PpTcHGPQ8qjZlDGJBIs1b9cCHBIu7vSaAHPmuNT008i79Vlcy'
+    })
+
 
 
 
@@ -37,7 +44,38 @@ export default class Payment extends Component {
         };
     }
 
+payment = async () =>{
 
+    const token = await stripe.paymentRequestWithCardForm({
+        // Only iOS support this options
+        //  smsAutofillDisabled: true,
+        //  requiredBillingAddressFields: 'full',
+        // prefilledInformation: {
+        //   billingAddress: {
+        //     name: 'Enappd Store',
+        //     line1: 'Canary Place',
+        //     line2: '3',
+        //     city: 'Macon',
+        //     state: '',
+        //     country: 'Estonia',
+        //     postalCode: '31217',
+        //     email: 'admin@enappd.com',
+          
+        //   },
+        // },
+
+      }).then((token) => {
+        // asynchronously called
+        console.log(token);
+        Alert.alert('Payment Successfull')
+    })
+    .catch(err =>{
+        console.log(err);
+        Alert.alert('Payment is not Successfull')
+    });
+     // console.log(token)
+     // Alert.alert('Payment Successfull')
+}
     
 
 
@@ -147,7 +185,7 @@ export default class Payment extends Component {
                 </View>
 
 
-                <Item stackedLabel style={{ borderBottomColor: '#0d786e', borderBottomWidth: 1.8, width: width - 60,
+                {/* <Item stackedLabel style={{ borderBottomColor: '#0d786e', borderBottomWidth: 1.8, width: width - 60,
                              alignSelf: 'center',marginTop:30 }}>
                                 <Label style={{ fontWeight: 'bold', width: 80, color: '#0d786e', fontSize: 14,width:'75%',marginLeft:5 }}>Card Holders Name</Label>
 
@@ -166,9 +204,9 @@ export default class Payment extends Component {
                                     value={this.state.phoneNo}
 
                                     placeholder='Card Number' placeholderTextColor="#B0B3B0" keyboardType="number-pad"  style={{ fontSize: 14 }} />
-                </Item>
+                </Item> */}
 
-                
+{/*                 
                 <Item stackedLabel style={{ borderBottomColor: '#0d786e', borderBottomWidth: 1.8, width: width - 60,
                              alignSelf: 'center'}}>
                                 <Label style={{ fontWeight: 'bold', width: 80, color: '#0d786e', fontSize: 14 ,marginLeft:5 }}>EXP Date</Label>
@@ -188,13 +226,13 @@ export default class Payment extends Component {
                                     value={this.state.phoneNo}
 
                                     placeholder='cvc/cvv2' placeholderTextColor="#B0B3B0" keyboardType="number-pad"  style={{ fontSize: 14 }} />
-            </Item>
+            </Item> */}
 
 
 
             <Pressable 
-            onPress={() => this.props.navigation.navigate('ListItem')}
-            style={{ marginVertical: 25, flexDirection: 'row', width: '100%', alignSelf: 'center',  justifyContent: 'center', }}>
+            onPress={() => this.payment()}
+            style={{ marginVertical: 65, flexDirection: 'row', width: '100%', alignSelf: 'center',  justifyContent: 'center', }}>
                             
                         <View  style={{ width: '93%', justifyContent: 'center',alignItems:'center',}}>
 
