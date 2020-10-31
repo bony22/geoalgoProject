@@ -123,40 +123,78 @@ export default class EcomScreen1 extends Component {
 
 
 
+    // list1 = () => {
+    //     return this.state.VariusItems1.map((element, index) => {
+    //        // console.log("this.state.image_url+element.image",this.state.image_url+element.image)
+    //         return (
+    //              <View key={index} style={{padding:5}} >
+    //                  {/* style={[{height:140},{width:width/2},{flexDirection:'row'},{padding:8}]} */}
+    //                    <View style={{justifyContent:'center',alignItems:'center', }}>
+    //                         {/* <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{marginLeft:10}}> */}
+    //                             <Pressable 
+    //                              onPress={() => this.props.navigation.navigate('ListItem')}
+    //                             style={styles.boxView} >
+    //                                 <Image source ={element.product} style={{height:60,width:60,marginVertical:5,
+    //                                 borderRadius:30, alignSelf:'center',}} /> 
+    //                                  {/* <View style={{width:'2%'}}></View> */}
+    //                                  <Text numberOfLines={1} style={{textAlign:'center',
+    //                                  color:'black',
+    //                                 //  color:'#006565',
+    //                                  letterSpacing:1}}>{element.productname}</Text>
+                                  
+    //                             </Pressable>
+    //                     {/* marginBottom:5,color:'#006565', */}
+    
+    
+                                 
+    //                     </View>
+    //                             {/* <View style={{width:'2%'}}></View> */}
+    //                     {/* </ScrollView>     */}
+    //             </View>
+              
+    //         );
+    //     });
+    // };
+
     list1 = () => {
         return this.state.VariusItems1.map((element, index) => {
            // console.log("this.state.image_url+element.image",this.state.image_url+element.image)
             return (
-                 <View key={index} style={{padding:5,  }} >
-                     {/* style={[{height:140},{width:width/2},{flexDirection:'row'},{padding:8}]} */}
-                       <View style={{justifyContent:'center',alignItems:'center', }}>
-                            {/* <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{marginLeft:10}}> */}
-                                <Pressable 
-                                 onPress={() => this.props.navigation.navigate('ListItem')}
-                                style={styles.boxView} >
-                                    <Image source ={element.product} style={{height:60,width:60,marginVertical:5,
-                                    borderRadius:30, alignSelf:'center',}} /> 
-                                     {/* <View style={{width:'2%'}}></View> */}
+              <TouchableOpacity
+               onPress={() => this.props.navigation.navigate('ListItem')}
+              key={index} >
+           
+             <View style={[ {height:115},{ width:((width)/3-16)},
+             //  index%2!=0? {paddingLeft:8}:{paddingLeft:0},
+             // {padding:3},
+             {marginHorizontal:4}, {marginVertical:4},{backgroundColor:'white'},{elevation:5},{ borderRadius:20,},
+             {alignItems:'center'},{justifyContent:'center'}
+             ]}
+                //  key={index} 
+                 >
+                    
+                     {/* <Image source ={element.img} */}
+                     <Image source ={element.product}
+                     style={{
+                         height:60,
+                         width: 60,
+                         
+                         borderRadius:40,
+                         resizeMode:'cover'
+                         
+                     }} />
+             
                                      <Text numberOfLines={1} style={{textAlign:'center',
                                      color:'black',
                                     //  color:'#006565',
-                                     letterSpacing:1}}>{element.productname}</Text>
+                                     letterSpacing:1,padding:5}}>{element.productname}</Text>   
+                                     </View>
+                                     </TouchableOpacity>
                                   
-                                </Pressable>
-                        {/* marginBottom:5,color:'#006565', */}
-    
-    
-                                 
-                        </View>
-                                {/* <View style={{width:'2%'}}></View> */}
-                        {/* </ScrollView>     */}
-                </View>
-              
+                            
             );
         });
     };
-
-
 
 
     render() {
@@ -485,7 +523,7 @@ const styles = StyleSheet.create({
 
     },
     boxView:{
-        width:100,
+        width:100 ,
         backgroundColor:'#FFFBFA',
         height:115,
         alignItems:'center',
