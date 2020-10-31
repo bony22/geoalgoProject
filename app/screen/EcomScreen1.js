@@ -164,7 +164,7 @@ export default class EcomScreen1 extends Component {
            // console.log("this.state.image_url+element.image",this.state.image_url+element.image)
             return (
               <TouchableOpacity
-              // onPress={() => this.props.navigation.navigate('ListItem')}
+               onPress={() => this.props.navigation.navigate('ListItem')}
               key={index} >
            
              <View style={[ {height:140},{ width:((width)/3-8)},
