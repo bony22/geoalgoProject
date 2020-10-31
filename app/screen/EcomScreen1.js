@@ -99,12 +99,15 @@ export default class EcomScreen1 extends Component {
     list = () => {
         return this.state.VariusItems.map((element, index) => {
             return (
-                <View style={{ marginTop: 10 ,padding:5,  }} key={index} >
+                <View style={{
+                    // marginTop: 10 ,
+                padding:5,  }} key={index} >
 
                  
-                    <View style={{ height:100, width:'100%',justifyContent:'center',alignItems:'center', elevation:10, }}>
+                    <View style={{ height:100, width:'100%',justifyContent:'center',alignItems:'center', elevation:10}}>
 
-                    <Pressable style={styles.boxView1} 
+                    <Pressable
+                     style={styles.boxView1} 
                     onPress={() => this.props.navigation.navigate('ListItem')}
                     >
                         <Image
@@ -161,10 +164,10 @@ export default class EcomScreen1 extends Component {
            // console.log("this.state.image_url+element.image",this.state.image_url+element.image)
             return (
               <TouchableOpacity
-               onPress={() => this.props.navigation.navigate('ListItem')}
+              // onPress={() => this.props.navigation.navigate('ListItem')}
               key={index} >
            
-             <View style={[ {height:115},{ width:((width)/3-16)},
+             <View style={[ {height:140},{ width:((width)/3-8)},
              //  index%2!=0? {paddingLeft:8}:{paddingLeft:0},
              // {padding:3},
              {marginHorizontal:4}, {marginVertical:4},{backgroundColor:'white'},{elevation:5},{ borderRadius:20,},
@@ -176,10 +179,10 @@ export default class EcomScreen1 extends Component {
                      {/* <Image source ={element.img} */}
                      <Image source ={element.product}
                      style={{
-                         height:60,
-                         width: 60,
-                         
-                         borderRadius:40,
+                         height:'60%',
+                         width: '80%',
+                         marginTop:5,
+                         borderRadius:15,
                          resizeMode:'cover'
                          
                      }} />
@@ -289,7 +292,6 @@ colors={[colors.headercolor31,colors.headercolor32,]}
                     {/* <View style={{width:'98%',borderWidth:0.5,borderColor:'#989B98',alignSelf:'center',marginBottom:5}}></View> */}
                     
 
-
                         <View style={{
                             backgroundColor:'#fff'
                             }} >
@@ -343,9 +345,10 @@ colors={[colors.headercolor31,colors.headercolor32,]}
 
                        
 
-                            <View style={{ justifyContent: 'flex-start',alignItems:'flex-start',marginTop:5,backgroundColor:'#fff'}}>
+                            <View style={{ justifyContent: 'flex-start',alignItems:'flex-start',marginTop:10,backgroundColor:'#fff'}}>
                             <Text style={{fontWeight:'bold',fontSize:15,color:'white',marginLeft:10,color:'black'}}>Category:</Text>
                             </View>
+                            <View style={{height:10,width:'100%'}}></View>
 
                             {/* <View style={{width:'90%',borderWidth:0.5,borderColor:'#989B98',alignSelf:'center',marginBottom:5}}></View> */}
                             {/* 
@@ -364,7 +367,7 @@ colors={[colors.headercolor31,colors.headercolor32,]}
                   
                     > */}
  <ScrollView horizontal={false} showsHorizontalScrollIndicator={false} 
-                         style={{flex:1}}
+                         style={{flex:2}}
                          > 
                            
                            

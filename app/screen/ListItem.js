@@ -325,6 +325,8 @@ export default class ListItem extends Component {
                     <ScrollView>
                         {this.list1()}
 
+                        <View style={{height:65,width:'100%'}}></View>
+
                     </ScrollView>
 
                 )}
