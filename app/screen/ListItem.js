@@ -25,7 +25,8 @@ export default class ListItem extends Component {
             // active: false,
             modalVisible: false,
             modalVisible1: false,
-            data:[],
+            data1:[],
+            element1:[],
             indicatorLoading:true,
 
 
@@ -60,27 +61,59 @@ export default class ListItem extends Component {
        
       
     }
-    showConfirm() {
-        this.setState({ modalVisible: true });
+    
+    showConfirm(element) {
+        this.setState({
+            element1:element,
+             modalVisible: true 
+            });
+            console.log('object111111',element)
     }
     hideConfirm() {
         this.setState({ modalVisible: false });
     }
 
-    listItem1 = async() =>{
-    
-        let resp =await fetch('http://www.adroitinclusive.com:81/data.php')
-        let respJson= await resp.json()
-        this.setState({
-            data:respJson,
-            indicatorLoading:false,
+    // listItem1 = async() =>{
+       
+    //     let resp =await fetch('http://www.adroitinclusive.com:81/data.php')
+    //     let respJson= await resp.json()
+    //     this.setState({
+    //         data:respJson,
+    //         indicatorLoading:false,
         
           
-        })
-        //console.log(respJson)
-    }
+    //     })
+    //     console.log(respJson)
+    // }
  
-    
+    listItem1 = async () => {
+        let data = {
+           action:'all',
+        }
+          
+          const rawResponse = await fetch('http://www.adroitinclusive.com:81/data.php', {
+            
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            // body:data
+          });
+          const content = await rawResponse.json();
+
+          this.setState({
+                    data1:content,
+                    indicatorLoading:false,
+                
+                  
+                })
+        
+          console.log(content);
+        
+        };
+        
 
 
     clickHandler = () => {
@@ -96,16 +129,15 @@ export default class ListItem extends Component {
 
 
     list1 = () => {
-        return this.state.data.map((element, index) => {
+        return this.state.data1.map((element, index) => {
+            //  console.log("list11",element)
             return (
                 <View key={index}>
 
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Card style={{
-                            flexDirection: 'row', borderRadius: 9, elevation: 5, width: width - 40,
-                            // backgroundColor:'#fffff0',
-                            backgroundColor: 'white',
-                            // backgroundColor:'seashell'
+                            flexDirection: 'row', borderRadius: 9, elevation: 5, width: width - 40,backgroundColor: 'white',
+                          
                         }}>
                             <View style={{ width: '20%', marginVertical: 8 }}>
                                 <Image source={{
@@ -115,27 +147,27 @@ export default class ListItem extends Component {
                                 {/* <Text>{element.ID}</Text> */}
                             </View>
                             <View style={{ width: '80%', flexDirection: 'row' }}>
-                                <View style={{ justifyContent: 'center', marginHorizontal: 2, width: '65%' }}
-                                    onTouchEnd={() => {
+                                <View style={{ justifyContent: 'center', marginHorizontal: 2, width: '65%' }}>
+                                   
+                                    
 
-                                        //  this.setState({modalVisible1:true,newData:element})
-                                    }}>
-
-                                    {/* <Text style={{color:'#1175AE',fontSize:16}}>General Physician/Internal ....</Text> */}
+                                   
                                     <Text style={{
-                                        // color:'#006565',
                                         color: 'black',
                                         fontSize: 16, letterSpacing: 1
                                     }}>{element.name}</Text>
+
+                                    
                                     <Text numberOfLines={1} style={{
-                                        // color:'#006565',
                                         color: 'black',
                                         fontSize: 12, letterSpacing: 1
                                     }}>{element.type}</Text>
 
+                                       
+
                                 </View>
 
-                                <Pressable onPress={() => this.showConfirm()}
+                                <TouchableOpacity onPress={() => this.showConfirm(element)}
                                     style={{ justifyContent: 'center', width: '40%', alignItems: 'center', }}
                                 >
                                     {/* <Button  
@@ -175,7 +207,7 @@ export default class ListItem extends Component {
 
 
                                     {/* </Button> */}
-                                </Pressable>
+                                </TouchableOpacity>
 
                                 {/* </View> */}
 
@@ -187,7 +219,7 @@ export default class ListItem extends Component {
                         </Card>
                     </View>
 
-                    <Modal
+                    {/* <Modal
                         animationType='fade'
                         transparent={true}
                         visible={this.state.modalVisible}
@@ -197,7 +229,7 @@ export default class ListItem extends Component {
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
                             <View style={{ margin: 50 }}
                             ></View>
-                            {/* <Button style={{ height: '4%',transparent:true}}></Button> */}
+                           
 
                             <View style={{ width: '90%', alignItems: 'flex-end', }}>
                                 <Icon onPress={() => this.hideConfirm()} name="squared-cross" type="Entypo"
@@ -206,7 +238,9 @@ export default class ListItem extends Component {
 
 
 
-                            <SingleItem />
+                            <SingleItem 
+                             id={this.state.element1.ID}
+                             />
 
 
 
@@ -215,7 +249,7 @@ export default class ListItem extends Component {
 
                         </View>
 
-                    </Modal>
+                    </Modal> */}
 
 
 
@@ -223,8 +257,6 @@ export default class ListItem extends Component {
             );
         });
     };
-
-
 
 
 
@@ -329,7 +361,39 @@ export default class ListItem extends Component {
 
                     </ScrollView>
 
-                )}
+                 )} 
+
+                    <Modal
+                        animationType='fade'
+                        transparent={true}
+                        visible={this.state.modalVisible}
+
+                    >
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'#000000aa',}}>
+                            <View style={{ margin: 50 }}></View>
+                           
+
+                            <View
+                            style={{ width: '90%', alignItems: 'flex-end', }}>
+                                <Icon  onPress={() => this.hideConfirm()} name="squared-cross" type="Entypo"
+                                    style={{ color: '#b80000', fontSize: 30, position: 'absolute', zIndex: 999, right: 0, }} />
+                            </View>
+
+
+
+                            <SingleItem 
+                             id={this.state.element1.ID}
+                             />
+
+
+
+
+                            <Button style={{ height: '5%', transparent: true }}></Button>
+
+                        </View>
+
+                    </Modal>
 
 
 
@@ -361,7 +425,7 @@ export default class ListItem extends Component {
                             }} />
                         </Pressable> */}
 
-                        <View style={{ marginLeft: 15, width: '40%', justifyContent: "flex-start", flexDirection: 'row' }}>
+                        <View style={{ marginLeft: 15, width: '40%', justifyContent: "flex-start", flexDirection: 'row', }}>
                             <Icon onPress={() => this.hideModal()} name='arrow-back' type='Ionicons'
                                 style={{ color: 'white', fontSize: 25, position: 'absolute', zIndex: 1, marginTop: 20 }} />
                         </View>
