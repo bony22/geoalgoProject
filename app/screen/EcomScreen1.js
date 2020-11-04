@@ -234,19 +234,19 @@ colors={[colors.headercolor31,colors.headercolor32,]}
  
   >
                   
-                    <View style={{ hight: 40, width: '15%', justifyContent: 'center', alignItems: 'center' }}>
-                    <Pressable onPress={() => this.props.navigation.openDrawer()}>
-                        <Icon name="md-menu-outline"
-                            type='Ionicons'
-                            style={{ fontSize: 20, color: 'white' }}
+                    <View style={{ hight: 40, width: '13%', justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
+                        <Icon name="menu"
+                            type='Entypo'
+                            style={{ fontSize: 25, color: 'white' }}
                         />
-                        </Pressable>
+                        </TouchableOpacity>
                     </View>
 
                    
 
                     <View style={{
-                        backgroundColor: '#fff', height: 40, width: '68%',
+                        backgroundColor: '#fff', height: 40, width: '63%',
                         justifyContent: 'space-evenly', borderRadius: 20, flexDirection: 'row', elevation: 10
                     }}>
 
@@ -258,15 +258,26 @@ colors={[colors.headercolor31,colors.headercolor32,]}
                     </View>
 
                     <TouchableOpacity
-                        style={{ hight: 40, width: '15%', justifyContent: 'center', alignItems: 'center' }}
-                    // onPress={() => this.props.navigation.navigate('login')}
+                        style={{ hight: 40, width: '9%', justifyContent: 'flex-start', alignItems: 'flex-start' }}
+                     onPress={() => this.props.navigation.navigate('CartItem')}
+                    >
+                        <Icon name="shoppingcart"
+
+                            type='AntDesign'
+                            style={{ fontSize: 25, color: 'white' }}
+                        />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity 
+                     onPress={() => this.props.navigation.navigate('SignIn')}
                     >
                         <Icon name="user-circle"
-
                             type='FontAwesome'
                             style={{ fontSize: 25, color: 'white' }}
                         />
                     </TouchableOpacity>
+
+                 
                     </LinearGradient>
 
                 {/* </View> */}
@@ -366,7 +377,7 @@ colors={[colors.headercolor31,colors.headercolor32,]}
                     horizontal={false} 
                   
                     > */}
- <ScrollView horizontal={false} showsHorizontalScrollIndicator={false} 
+ <                       ScrollView horizontal={false} showsHorizontalScrollIndicator={false} 
                          style={{flex:2}}
                          > 
                            

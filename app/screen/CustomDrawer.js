@@ -23,30 +23,36 @@ export default class CustomDrawer extends Component {
     image:'',
     items : [
       {
-        ScreenTitle: 'Profile Settings',
+        ScreenTitle: ' My Profile',
         ScreenSubtitle:'Change your personal information',
         navOptionName: 'First Screen',
-        screenToNavigate: 'NavScreen1',
+        screenToNavigate: 'Profile',
 
       },
-      {
+      // {
        
-        ScreenTitle: 'Membership Type',
-        ScreenSubtitle:'Manage Your account membership',
-        navOptionName: 'Second Screen',
-        screenToNavigate: 'ChoosePlan',
-      },
-      {
-        ScreenTitle: 'Wishlist',
-        ScreenSubtitle:'All Your Wishlist are here',
-        navOptionName: 'Seventh Screen',
-        screenToNavigate: 'allDownloads',
-      },
+      //   ScreenTitle: 'Membership Type',
+      //   ScreenSubtitle:'Manage Your account membership',
+      //   navOptionName: 'Second Screen',
+      //   screenToNavigate: 'ChoosePlan',
+      // },
+      // {
+      //   ScreenTitle: 'Wishlist',
+      //   ScreenSubtitle:'All Your Wishlist are here',
+      //   navOptionName: 'Seventh Screen',
+      //   screenToNavigate: 'allDownloads',
+      // },
       {
         ScreenTitle: 'My Orders',
         ScreenSubtitle:'Manage Your Order',
         navOptionName: 'eighth Screen',
         screenToNavigate: 'allWatchlist',
+      },
+      {
+        ScreenTitle: 'Track Order',
+        ScreenSubtitle:'All Your Wishlist are here',
+        navOptionName: 'Seventh Screen',
+        screenToNavigate: 'allDownloads',
       },
       {
         ScreenTitle: 'Notifications',
@@ -67,13 +73,13 @@ export default class CustomDrawer extends Component {
         screenToNavigate: 'NavScreen5',
       },
       {
-        ScreenTitle: 'Privacy Settings',
+        ScreenTitle: 'Payment Info',
         ScreenSubtitle:'Control who sees what on your profile',
         navOptionName: 'Sixth Screen',
         screenToNavigate: 'NavScreen6',
       },
       {
-        ScreenTitle: 'Help Center',
+        ScreenTitle: 'Contact Us',
         ScreenSubtitle:'Check how others view you Eros Now',
         navOptionName: 'Seventh Screen',
         screenToNavigate: 'Profile',
@@ -146,7 +152,7 @@ export default class CustomDrawer extends Component {
       }}
       key={index}>
         <Pressable
-        // onPress={() => this.props.navigation.navigate(item.screenToNavigate)}
+         onPress={() => this.props.navigation.navigate(item.screenToNavigate)}
         >
      
       <Text style={styles.MenuTitle}

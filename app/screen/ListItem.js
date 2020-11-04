@@ -110,7 +110,7 @@ export default class ListItem extends Component {
                   
                 })
         
-          console.log(content);
+         // console.log(content);
         
         };
         
@@ -336,7 +336,7 @@ export default class ListItem extends Component {
 
                         <TouchableOpacity
                             style={{ hight: 40, width: '15%', justifyContent: 'center', alignItems: 'center' }}
-                        onPress={() => this.props.navigation.navigate('Payment')}
+                        onPress={() => this.props.navigation.navigate('CartItem')}
                         >
                             <Icon name="shoppingcart"
 
@@ -384,6 +384,8 @@ export default class ListItem extends Component {
 
                             <SingleItem 
                              id={this.state.element1.ID}
+                             navigation={this.props.navigation}
+                             hideModal1={() => this.setState({modalVisible: false})} 
                              />
 
 

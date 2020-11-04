@@ -69,6 +69,13 @@ let data = {
 
 };
 
+addtoCart =()=>{
+
+  this.props.hideModal1()
+  this.props.navigation.navigate('CartItem')
+
+}
+
 
 
 
@@ -166,7 +173,10 @@ let data = {
             </TouchableOpacity>
 
           </View>
-          <Pressable style={{ justifyContent: 'center', alignItems: 'center', width: '60%', }}>
+          <TouchableOpacity
+           onPress={() => this.addtoCart()}
+          
+          style={{ justifyContent: 'center', alignItems: 'center', width: '60%', }}>
 
           <LinearGradient
 
@@ -181,7 +191,7 @@ let data = {
               <Text style={{ color: '#FFFFFF' }}>Add to Cart</Text>
 
           </LinearGradient>
-          </Pressable>
+          </TouchableOpacity>
 
          
 

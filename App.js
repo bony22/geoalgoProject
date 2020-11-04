@@ -6,13 +6,17 @@ import SplashScreen from 'react-native-splash-screen'
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import {DraweItems, createDrawerNavigator} from 'react-navigation-drawer'
-
 import EcomScreen1 from './app/screen/EcomScreen1'
 import ListItem from './app/screen/ListItem'
  import SingleItem from './app/screen/SingleItem'
  import Payment from './app/screen/Payment'
  import ProductFilter from './app/screen/ProductFilter';
 import CustomDrawer from './app/screen/CustomDrawer';
+import Profile from './app/screen/Profile';
+import CartItem from './app/screen/CartItem';
+import SignIn from './app/screen/SignIn';
+import BuyNowAddress from './app/screen/BuyNowAddress';
+
 
 // const App: () => React$Node = () => {
 //   return (
@@ -58,7 +62,11 @@ const ScreenStack = createStackNavigator(
     ListItem:ListItem,
     Drawer: AppDrawer,
     Filter:ProductFilter,
-    Payment:Payment
+    Payment:Payment,
+    Profile:Profile,
+    CartItem:CartItem,
+    SignIn:SignIn,
+    BuyNowAddress:BuyNowAddress,
     
     
 
