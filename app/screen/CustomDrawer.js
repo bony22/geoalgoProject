@@ -46,7 +46,7 @@ export default class CustomDrawer extends Component {
         ScreenTitle: 'My Orders',
         ScreenSubtitle:'Manage Your Order',
         navOptionName: 'eighth Screen',
-        screenToNavigate: 'allWatchlist',
+        screenToNavigate: 'MyOrder',
       },
       {
         ScreenTitle: 'Track Order',
@@ -70,7 +70,7 @@ export default class CustomDrawer extends Component {
         ScreenTitle: 'My Cart',
         ScreenSubtitle:'Link Your Eros Now & Facebook accounts',
         navOptionName: 'Fifth Screen',
-        screenToNavigate: 'NavScreen5',
+        screenToNavigate: 'CartItem',
       },
       {
         ScreenTitle: 'Payment Info',

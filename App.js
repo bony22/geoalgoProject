@@ -16,6 +16,8 @@ import Profile from './app/screen/Profile';
 import CartItem from './app/screen/CartItem';
 import SignIn from './app/screen/SignIn';
 import BuyNowAddress from './app/screen/BuyNowAddress';
+import SignUp from './app/screen/SignUp';
+import MyOrder from './app/screen/MyOrder';
 
 
 // const App: () => React$Node = () => {
@@ -67,6 +69,8 @@ const ScreenStack = createStackNavigator(
     CartItem:CartItem,
     SignIn:SignIn,
     BuyNowAddress:BuyNowAddress,
+    SignUp:SignUp,
+    MyOrder:MyOrder,
     
     
 

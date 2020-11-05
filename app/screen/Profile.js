@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions, TextInput, Image, TouchableOpacity, ScrollView, ToastAndroid, Pressable,ImageBackground,
-StatusBar} from 'react-native';
-import { Card, Left, CardItem, Item, Input, Icon, Label, Button, Right, Picker, DatePicker,Header, Title, Body, } from 'native-base';
+import {
+    View, Text, StyleSheet, Dimensions, TextInput, Image, TouchableOpacity, ScrollView, ToastAndroid, Pressable, ImageBackground,
+    StatusBar
+} from 'react-native';
+import { Card, Left, CardItem, Item, Input, Icon, Label, Button, Right, Picker, DatePicker, Header, Title, Body, } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '@Component/Color';
 import { NavigationActions } from 'react-navigation';
@@ -18,8 +20,8 @@ import { NavigationActions } from 'react-navigation';
 
 const backAction = NavigationActions.back({
     // key: 'Profile',
-  });
-  
+});
+
 const { width, height } = Dimensions.get("window")
 
 const date = new Date();
@@ -49,7 +51,7 @@ export default class Profile extends Component {
             female: false,
             dob: '',
             image_url: '',
-            preview:'',
+            preview: '',
 
 
 
@@ -79,38 +81,11 @@ export default class Profile extends Component {
     }
 
 
-    imageHandler = () => {
-        ImagePicker.openPicker({
-            width: 300,
-            height: 400,
-            cropping: true,
-            mediaType: 'photo',
-        }).then(image => {
-            console.log('profileimage', image);
-            this.setState({
-                imagechoose: image,
-                // preview:(
-                //                     <Image source={{ uri:  this.state.image_urll + this.state.profile.image }} 
-                //                     style={styles.profileImage} resizeMode="cover" />
-                //         )
-                //imagechoose: image.path
-
-
-            })
-        }).catch(err => {
-            //Error
-            console.log(err)
-
-        })
-
-        // console.log('image11',this.state.imagechoose)
-    }
-
-
+  
 
     // myprofileFetch1 = async () => {
 
-       
+
     //     let data = { id: this.state.userdata.id }
     //     //    console.log('kdshgvfhkds',data)
 
@@ -124,7 +99,7 @@ export default class Profile extends Component {
 
     //             profile: result1.data,
     //             image_url: result1.image_url
-                
+
     //         })
     //         // console.log('tttttttt',this.state.profile)
     //     }
@@ -134,82 +109,82 @@ export default class Profile extends Component {
     //         ToastAndroid.show(' something wrong ', ToastAndroid.SHORT)
     //     }
     // }
-    fetchprofile1 = async() =>{
-      
+    fetchprofile1 = async () => {
 
-       
+
+
         this.setState({
             male: this.props.profile.gender == 'male',
             female: this.props.profile.gender == 'female',
             //image_url: this.state.url.image
-           
+
         })
 
-}
+    }
 
 
 
     profileEdit1 = async () => {
 
 
-        
-        if (this.props.profile.pincode !='' && this.props.profile.pincode.length == 6) {
+
+        if (this.props.profile.pincode != '' && this.props.profile.pincode.length == 6) {
 
             // let pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,20}[\.][a-z]{2,5}/g ;
-                    
+
             // if (pattern.test(this.props.profile.email) !== true) {
             // ToastAndroid.show("invalid Email Id !", ToastAndroid.SHORT);
             // return false;
             // }
-       
-        let data1 = {
 
-            id: this.state.userdata.id,
-            name: this.props.profile.name,
-             email: this.props.profile.email,
-            address: this.props.profile.address,
-            //images: this.props.profile.image,
-            //gender:this.props.profile.gender,
-            gender: this.state.male ? 'male' : 'female',
-            //gender: 'male',
-            pin: this.props.profile.pincode,
-            dob: this.props.profile.dob,
+            let data1 = {
 
+                id: this.state.userdata.id,
+                name: this.props.profile.name,
+                email: this.props.profile.email,
+                address: this.props.profile.address,
+                //images: this.props.profile.image,
+                //gender:this.props.profile.gender,
+                gender: this.state.male ? 'male' : 'female',
+                //gender: 'male',
+                pin: this.props.profile.pincode,
+                dob: this.props.profile.dob,
+
+            }
+            console.log('profile_edit', data1)
+
+            let result3 = await MyFunction.profileEdit(this.state.imagechoose, data1);
+            console.log('result_edit', result3)
+
+
+            if (result3 && result3.status) {
+
+                // this.setState({
+                //     male: result3.data.gender == 'male',
+                //     female: result3.data.gender == 'female',
+                //     // profile: result3.data,
+                //     // image_url: result3.image_url
+
+                // })
+                this.props.dispatch(editProfile(result3.data))
+                ToastAndroid.show(' Your Profile Updated Successfully ', ToastAndroid.SHORT)
+                Navigation.navigate('OtherDetails');
+            }
+
+            else {
+                this.setState({
+                    imagechoose: {
+                        path: '',
+                        mime: 'image/jpg'
+                    }
+
+                })
+                ToastAndroid.show(' Something Wrong ', ToastAndroid.SHORT)
+
+            }
+        } else {
+            ToastAndroid.show('Your Pincode must be in 6 digits ', ToastAndroid.SHORT)
         }
-        console.log('profile_edit', data1)
-
-        let result3 = await MyFunction.profileEdit(this.state.imagechoose, data1);
-       console.log('result_edit', result3)
-
-
-        if (result3 && result3.status) {
-
-            // this.setState({
-            //     male: result3.data.gender == 'male',
-            //     female: result3.data.gender == 'female',
-            //     // profile: result3.data,
-            //     // image_url: result3.image_url
-               
-            // })
-            this.props.dispatch(editProfile(result3.data))
-            ToastAndroid.show(' Your Profile Updated Successfully ', ToastAndroid.SHORT)
-            Navigation.navigate('OtherDetails');
-        }
-
-        else {
-            this.setState({
-                imagechoose:{
-                    path: '',
-                    mime: 'image/jpg'
-                }
-
-            })
-            ToastAndroid.show(' Something Wrong ', ToastAndroid.SHORT)
-            
-        }
-    }else{
-        ToastAndroid.show('Your Pincode must be in 6 digits ', ToastAndroid.SHORT)
-    }
 
     }
 
@@ -220,36 +195,36 @@ export default class Profile extends Component {
             <View style={styles.container}>
 
                 {/* <StatusBar barStyle="dark-content" backgroundColor="#FDFDFD"/> */}
-               
+
 
                 <LinearGradient
-                      
-                      start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-                      colors={[colors.headercolor31, colors.headercolor32,]}
-                      style={
-                          styles.Upper
+                    start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-                      //     justifyContent: 'space-between', flexDirection: 'row', height: 60, 
-                      //   alignItems:'center', width:'100%',elevation:15
-                      }>
+                    colors={[colors.headercolor31, colors.headercolor32,]}
+                    style={
+                        styles.Upper
 
-                
+                        //     justifyContent: 'space-between', flexDirection: 'row', height: 60, 
+                        //   alignItems:'center', width:'100%',elevation:15
+                    }>
+
+
                     <Pressable
-                     onPress={() => this.props.navigation.dispatch(backAction)}>
-                        <View style={{ justifyContent: 'center', alignItems: 'center',  marginTop: 18, marginLeft:15}}>
+                        onPress={() => this.props.navigation.dispatch(backAction)}>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 18, marginLeft: 15 }}>
                             <Icon name="ios-arrow-back" type='Ionicons'
                                 style={{ color: "#fff", fontSize: 28, }} />
                         </View>
                     </Pressable>
-                        <View style={{ width: '60%', marginTop: 18, }}>
-                            <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>Shopping Cart</Text>
-                        </View>
+                    <View style={{ width: '60%', marginTop: 18, }}>
+                        <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>Profile</Text>
+                    </View>
 
-                    
-                  </LinearGradient>
 
-                    {/* <View style={styles.Upper}>
+                </LinearGradient>
+
+                {/* <View style={styles.Upper}>
                         <Pressable onPress={() => this.props.navigation.navigate('OtherDetails')}>
                             <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 18, marginLeft: 15 }}>
                                 <Icon name="ios-arrow-back" type='Ionicons'
@@ -261,37 +236,37 @@ export default class Profile extends Component {
                         </View>
 
                     </View> */}
-                      
 
 
-                  
 
-                  
 
-                    <ScrollView showsVerticalScrollIndicator={false}>
 
-                    <View style={{ alignSelf: "center" }}>
-                        {/* <View > */}
-                            {/* <Image source={require('../../assests/profile-pic.jpg')} style={styles.image} resizeMode="cover"></Image> */}
 
-                           
-                        <View style={styles.profileImage}>
-                            {/* <Image source={require('../../assests/person.png')} style={styles.image} resizeMode="cover"></Image> */}
+
+                <ScrollView showsVerticalScrollIndicator={false}>
+
+                    {/* <View style={{ alignSelf: "center" }}> */}
+                    {/* <View > */}
+                    {/* <Image source={require('../../assests/profile-pic.jpg')} style={styles.image} resizeMode="cover"></Image> */}
+
+
+                    {/* <View style={styles.profileImage}>
+                          
 
                             <ImageBackground source={require('../assets/profile-pic.jpg')} style={[styles.image]} resizeMode="cover">
 
                             
                                </ImageBackground>
 
-                        </View>
+                        </View> */}
 
 
-                                   {/* <Image source={{ uri: this.state.preview }}  */}
-                                    {/* // // <Image source={{ uri: this.state.image_urll  }}  */}
-                                    {/* // style={styles.image} resizeMode="cover" /> */}
-                                     
+                    {/* <Image source={{ uri: this.state.preview }}  */}
+                    {/* // // <Image source={{ uri: this.state.image_urll  }}  */}
+                    {/* // style={styles.image} resizeMode="cover" /> */}
 
-                            {/* {this.state.profile.image != ''?(
+
+                    {/* {this.state.profile.image != ''?(
 
                                 <View style={styles.profileImage}><Text>{this.state.preview}</Text></View>
 
@@ -303,24 +278,24 @@ export default class Profile extends Component {
                             )
                             
                         } */}
-                               
-                                
-                           
-                              
-
-                        {/* </View> */}
-
-                        
 
 
-                        <TouchableOpacity onPress={() => this.imageHandler()}>
+
+
+
+                    {/* </View> */}
+
+
+
+
+                    {/* <TouchableOpacity onPress={() => this.imageHandler()}>
                             <View style={[styles.add, { marginLeft: 100, bottom: 30 }]}>
                                 <Icon name="ios-add-sharp"
                                     style={{ color: "#DFD8C8", fontSize: 40, marginTop: 3, marginLeft: 2 }} />
                             </View>
                         </TouchableOpacity>
 
-                    </View>
+                    </View> */}
 
 
                     <View style={styles.viewCard}>
@@ -344,25 +319,25 @@ export default class Profile extends Component {
 
                                     placeholder='firstname' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} /> */}
 
-                                    <Input
+                                <Input
                                     onChangeText={(value) => this.setState({ phoneNo: value })}
                                     value={this.state.phoneNo}
 
-                                    placeholder='Phone No' placeholderTextColor="#B0B3B0" keyboardType="number-pad" maxLength={10}
-                                     style={{ fontSize: 14 }} />
+                                    placeholder='name' placeholderTextColor="#B0B3B0" keyboardType="number-pad" maxLength={10}
+                                    style={{ fontSize: 14 }} />
 
 
                             </Item>
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
                                 <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Phone No</Label>
-                                <View style={{width:'100%'}}>
+                                <View style={{ width: '100%' }}>
                                     {/* <Text style={{ color: '#767675', marginTop: 10, marginLeft: 6}}></Text> */}
                                 </View>
                                 <Input
                                     // onChangeText={(value) => this.setState({ firstName: value })}
                                     // value={this.state.firstName}
-                                   
+
                                     placeholder='Phone No' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
                             </Item>
 
@@ -372,9 +347,9 @@ export default class Profile extends Component {
                                 <Input
                                     onChangeText={(value) => this.setState({ firstName: value })}
                                     value={this.state.firstName}
-                                   
-                                    placeholder='Phone No' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
-                                    
+
+                                    placeholder='name@email.com' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
+
                             </Item>
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', }}>
                                 <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Address</Label>
@@ -382,28 +357,28 @@ export default class Profile extends Component {
                                 <Input
                                     onChangeText={(value) => this.setState({ firstName: value })}
                                     value={this.state.firstName}
-                                   
-                                    placeholder='Phone No' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
+
+                                    placeholder='address' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
                             </Item>
 
-                            <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', }}>
+                            <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', marginBottom: 40 }}>
                                 <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Pincode</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ firstName: value })}
                                     value={this.state.firstName}
-                                   
-                                    placeholder='Phone No' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
+
+                                    placeholder='pincode' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
                             </Item>
 
 
-                            <View style={{ marginLeft: 10, height: 20, marginTop: 20 }}>
+                            {/* <View style={{ marginLeft: 10, height: 20, marginTop: 20 }}>
                                 <Label style={{ fontWeight: 'bold', width: 120, color: '#1273de',
                                  fontSize: 14, marginLeft: 16, marginBottom: 50 }}>Gender</Label>
 
-                            </View>
+                            </View> */}
 
-                            <View style={{ marginBottom: 20, marginLeft: 30, flexDirection: 'row', width: '100%', marginTop: 10 }}>
+                            {/* <View style={{ marginBottom: 20, marginLeft: 30, flexDirection: 'row', width: '100%', marginTop: 10 }}>
                                 <View style={{ width: '30%', }}>
                                     <Button
                                         onPress={() => this.setState({ male: true, female: false })}
@@ -430,18 +405,18 @@ export default class Profile extends Component {
                                         <Text style={{ color: '#1273de', fontWeight: 'bold', flexGrow: 1, textAlign: 'center' }}>Female</Text>
                                     </Button>
                                 </View>
-                            </View>
+                            </View> */}
 
 
 
 
 
 
-                            <Item stackedLabel style={{ marginBottom: 20, borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
-                                <Label style={{ fontWeight: 'bold', width: 120, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Date of Birth</Label>
+                            {/* <Item stackedLabel style={{ marginBottom: 20, borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+                                <Label style={{ fontWeight: 'bold', width: 120, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Date of Birth</Label> */}
 
 
-                                {/* <View style={styles.container1}>
+                            {/* <View style={styles.container1}>
                                     <Text style={{ color: 'grey' }}
                                         onPress={() => this.setState({ startDatePickerVisible: true })}
                                     >{
@@ -463,22 +438,22 @@ export default class Profile extends Component {
 
 
 
-                            </Item>
+                            {/* </Item> */}
 
 
 
-                            <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', marginBottom: 40 }}>
+                            {/* <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', marginBottom: 40 }}>
                                 <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 }}>Email</Label>
                                 <Input
                                     onChangeText={(value) => this.setState({ email: value })}
                                     value={this.state.email}
 
                                     placeholder='name@email.com' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
-                            </Item>
+                            </Item> */}
 
                         </Card>
-                        <View style={{ marginVertical: 30, flexDirection: 'row', width: '100%', alignSelf: 'center', bottom: -10, justifyContent: 'center' }}>
-                            <View style={{ width: '45%', justifyContent: 'center' }}>
+                        <View style={{ marginVertical: 20, flexDirection: 'row', width: '100%', alignSelf: 'center', bottom: -10, justifyContent: 'center' }}>
+                            {/* <View style={{ width: '45%', justifyContent: 'center' }}>
 
                                 <Button
                                     onPress={() => this.props.navigation.navigate('Home')}
@@ -489,13 +464,38 @@ export default class Profile extends Component {
                                         //onPress={() => this.props.navigation.navigate('ShowDetails')}
                                         style={{ color: '#FFFDF3', fontWeight: 'bold', flexGrow: 1, textAlign: 'center', fontSize: 16 }}>Cancel</Text>
                                 </Button>
-                            </View>
-                            <View style={{ width: '5%' }}></View>
+                            </View> */}
 
 
-                            
-                            
-                             <View style={{ width: '45%' }}>
+
+                                <TouchableOpacity
+                                //  onPress={() => this.addtoCart()}
+
+                                style={{ justifyContent: 'center', alignItems: 'center', width: '60%', }}>
+
+                                <LinearGradient
+
+
+                                    start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
+
+                                    colors={[colors.headercolor31, colors.headercolor32,]}
+                                    style={{
+                                        justifyContent: 'center', width: '55%',alignSelf: 'center', alignItems: 'center', height: 50,
+                                        borderRadius: 7, backgroundColor: '#C36BB9',
+                                    }} >
+
+                                    <Text style={{ color: '#FFFFFF',fontWeight:'bold',fontSize:18 }}>Cancel</Text>
+
+                                </LinearGradient>
+                            </TouchableOpacity>
+
+
+                            {/* <View style={{ width: '5%' }}></View> */}
+
+
+
+
+                            {/* <View style={{ width: '45%' }}>
 
                             
 
@@ -520,8 +520,28 @@ export default class Profile extends Component {
 
                                 </Button>
                                 
-                            </View> 
+                            </View>  */}
 
+                            <TouchableOpacity
+                                //  onPress={() => this.addtoCart()}
+
+                                style={{ justifyContent: 'center', alignItems: 'center',  width: '60%', }}>
+
+                                <LinearGradient
+
+
+                                    start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
+
+                                    colors={[colors.headercolor31, colors.headercolor32,]}
+                                    style={{
+                                        justifyContent: 'center',  width: '55%', alignSelf: 'center', alignItems: 'center', height: 50,
+                                        borderRadius: 7, backgroundColor: '#C36BB9',
+                                    }} >
+
+                                    <Text style={{ color: '#FFFFFF',fontWeight:'bold',fontSize:18 }}>Save</Text>
+
+                                </LinearGradient>
+                            </TouchableOpacity>
 
                         </View>
                     </View>
@@ -540,14 +560,14 @@ export default class Profile extends Component {
 // const mapStateToProps=(state)=>{
 //     // console.log("state.ProfileRedux.profile",state.ProfileRedux.profile)
 //       return{
-  
+
 //           profile:state.ProfileRedux.profile,
 //           image_url:state.ProfileRedux.image_url,
-      
-  
+
+
 //       }
 //   }
-  
+
 //   export default connect(mapStateToProps)(MyProfile);
 
 
@@ -569,7 +589,7 @@ const styles = StyleSheet.create({
         height: 160,
         borderRadius: 100,
         //overflow: "hidden",
-       // marginTop: 15,
+        // marginTop: 15,
 
     },
     titleBar: {
@@ -605,7 +625,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         flexDirection: 'row',
-        elevation:8
+        elevation: 8
         // marginHorizontal: 15,
         // marginTop: 15,
 

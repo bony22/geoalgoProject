@@ -172,10 +172,13 @@ export default class SignIn1 extends Component {
 
                                 <View style={{ justifyContent: 'flex-end', flexDirection: 'row',alignItems:'flex-end',alignContent:'flex-end',alignSelf:'flex-end',
                             width:'30%',marginLeft:200,marginBottom:20 }}>
+                                 <Pressable 
+                                     onPress={() => this.props.navigation.navigate('SignUp')}>
                                     <Text style={{
                                         fontSize: 13, fontWeight: 'bold', color: 'white',marginRight:20
                                        
                                     }}>SIGN UP</Text>
+                                    </Pressable>
 
                                     <Pressable 
                                      onPress={() => this.props.navigation.navigate('Home')}>
@@ -228,6 +231,20 @@ export default class SignIn1 extends Component {
                                         onChangeText={(value)=>this.setState({number:value})}
                                         value={this.state.number} 
                                     />
+
+<TextInput
+
+style={{
+    marginBottom:20, color: '#fff',width:'100%',
+    borderBottomColor: '#f8f8f8', borderBottomWidth: 1,
+}}
+
+placeholder='Enter Password'
+placeholderTextColor="#000" underlineColorAndroid={'black'}
+keyboardType="number-pad"
+onChangeText={(value)=>this.setState({number:value})}
+value={this.state.number} 
+/>
 
 
                                     <TouchableOpacity

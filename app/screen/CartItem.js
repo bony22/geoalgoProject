@@ -300,7 +300,7 @@ deleteEcomcart = async(data3) =>{
 		return (
 			<View style={{flex: 1, backgroundColor: '#D5DBE0'}}>
 				
-        <StatusBar barStyle="light-content" backgroundColor="#E7E7E7"/>
+        {/* <StatusBar barStyle="light-content" backgroundColor="#E7E7E7"/> */}
 
         <LinearGradient
                       

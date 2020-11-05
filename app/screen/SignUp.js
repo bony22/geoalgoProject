@@ -206,33 +206,18 @@ export default class BuyNowAddress extends Component {
                         </View>
                     </Pressable>
                         <View style={{ width: '60%', marginTop: 18, }}>
-                            <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>Fill Up For Buying</Text>
+                            <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>Sign Up</Text>
                         </View>
 
                     
                   </LinearGradient>
                 
-                {/* <View style={styles.Upper}>
-                        <Pressable onPress={() => this.props.navigation.navigate('TestCart')}>
-                            <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 18, marginLeft: 15 }}>
-                                <Icon name="ios-arrow-back" type='Ionicons'
-                                    style={{ color: "#1273de", fontSize: 25, }} />
-                            </View>
-                        </Pressable>
-
-                        <View style={{ width: '60%', marginTop: 18, }}>
-                            <Text style={{ color: '#1273de', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>Fill Up For Buying</Text>
-                        </View>
-
-                </View> */}
+              
                 <ScrollView>
                     <View style={styles.viewCard}>
-                        {/* <View style={{width:50,height:50}}>
-                </View> */}
+                      
                         <Card style={{ borderRadius: 10 }}>
-                            {/* <Icon name="edit" type="Feather" style={{ fontSize: 18, right: -320, top: 20, color: '#AEB0AE' }} />
-                            <Image source={require('../../assests/person.png')}
-                                style={{ height: 60, width: 60, borderRadius: 30, alignSelf: 'center', top: -50, right: -110 }} /> */}
+                           
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60,
                              alignSelf: 'center',marginTop:30 }}>
@@ -242,81 +227,42 @@ export default class BuyNowAddress extends Component {
                                     onChangeText={(value) => this.setState({ fullName: value })}
                                     value={this.state.fullName}
 
-                                    placeholder='Full Name' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
+                                    placeholder='name' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
                             </Item>
+
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
                                 <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Phone No</Label>
 
                                 <Input
-                                    onChangeText={(value) => this.setState({ phoneNo: value })}
-                                    value={this.state.phoneNo}
+                                    onChangeText={(value) => this.setState({ state: value })}
+                                    value={this.state.state}
 
-                                    placeholder='Phone No' placeholderTextColor="#B0B3B0" keyboardType="number-pad" 
-                                    maxLength={10} style={{ fontSize: 14 }} />
+                                    placeholder='Phone No' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
                             </Item>
 
-
+                        
+            
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Email</Label>
-
-                                <Input
-                                    onChangeText={(value) => this.setState({ email: value })}
-                                    value={this.state.email}
-
-                                    placeholder='name@gmail.com' placeholderTextColor="#B0B3B0" keyboardType='email-address'
-                                    style={{ fontSize: 14 }} />
-                            </Item>
-
-
-                            <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Address</Label>
-
-                                <Input
-                                    onChangeText={(value) => this.setState({ address: value })}
-                                    value={this.state.address}
-
-                                    placeholder='Address' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
-                            </Item>
-                            <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Landmark</Label>
-
-                                <Input
-                                    onChangeText={(value) => this.setState({ landmark: value })}
-                                    value={this.state.landmark}
-
-                                    placeholder='Landmark' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
-                            </Item>
-                            <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>City</Label>
-
-                                <Input
-                                    onChangeText={(value) => this.setState({ city: value })}
-                                    value={this.state.city}
-
-                                    placeholder='City' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
-                            </Item>
-
-                            <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>State</Label>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Password</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ state: value })}
                                     value={this.state.state}
 
-                                    placeholder='State' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
+                                    placeholder='password' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
                             </Item>
 
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14,marginLeft:6 }}>Pincode</Label>
+                                <Label style={{ fontWeight: 'bold', width:'100%', color: '#1273de', fontSize: 14,marginLeft:6 }}>Re-enter Password</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ pincode: value })}
                                     value={this.state.pincode}
 
-                                    placeholder='Pincode' placeholderTextColor="#B0B3B0" keyboardType="number-pad"
-                                    maxLength={6}  style={{ fontSize: 14 }} />
+                                    placeholder='password' placeholderTextColor="#B0B3B0" 
+                                     style={{ fontSize: 14 }} />
                             </Item>
 
                             {/* <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
@@ -358,7 +304,7 @@ export default class BuyNowAddress extends Component {
                             <TouchableOpacity
                                 //  onPress={() => this.addtoCart()}
 
-                                style={{ justifyContent: 'center',   width: '80%', borderWidth:1 }}
+                                style={{ justifyContent: 'center',   width: '80%', }}
                                 >
 
                                 <LinearGradient
@@ -372,7 +318,7 @@ export default class BuyNowAddress extends Component {
                                         borderRadius: 7, backgroundColor: '#C36BB9',}}
                                      >
 
-                                    <Text style={{ color: '#FFFDF3', fontWeight: 'bold', textAlign: 'center', fontSize: 16 }}>Place Order</Text>
+                                    <Text style={{ color: '#FFFDF3', fontWeight: 'bold', textAlign: 'center', fontSize: 16 }}>Save</Text>
 
                                 </LinearGradient>
                             </TouchableOpacity>
