@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions, TextInput, Image, TouchableOpacity, ScrollView, ToastAndroid,Pressable,StatusBar} from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TextInput, Image, TouchableOpacity, ScrollView, ToastAndroid, Pressable, StatusBar } from 'react-native';
 import { Card, Left, CardItem, Item, Input, Icon, Label, Button, Right, Picker, DatePicker } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '@Component/Color';
@@ -16,29 +16,29 @@ const { height, width } = Dimensions.get('window');
 
 const backAction = NavigationActions.back({
     // key: 'Profile',
-  });
+});
 
 
 export default class BuyNowAddress extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+
             // selected4: undefined,
-           // userId: '',
+            // userId: '',
             fullName: '',
             email: '',
-           phoneNo:'',
-           pincode:'',
-           address:'',
-           city:'',
-           state:'',
-           landmark:'',
+            phoneNo: '',
+            pincode: '',
+            address: '',
+            city: '',
+            state: '',
+            landmark: '',
             account: {}
 
         };
 
-       // this.setDob = this.setDob.bind(this);
+        // this.setDob = this.setDob.bind(this);
     }
     //   onValueChange4(value) {
     //     this.setState({
@@ -52,7 +52,7 @@ export default class BuyNowAddress extends Component {
 
     //     await this.userIdd()
     //   //  await this.cartFetch1
-      
+
 
     // }
 
@@ -70,34 +70,34 @@ export default class BuyNowAddress extends Component {
 
 
     // cartFetch1 = async() =>{
-   
+
     //     let data={
     //         user_id:this.state.userdata.id
     //     }
-    
+
     //     // let result1=await MyFunction.cartFetch(data);
     //     // console.log('cartfetchhhhhhh',result1)
-        
-    
+
+
     //     // if( result1 && result1.status){
     //     //     this.setState({
     //     //         cartData:result1.data,
-                
+
     //     //     })
     //     //     let data1={
     //     //         data:result1.data,
     //     //         image_url:result1.image_url,
     //     //         //
-                
+
     //     //         //datadel:result1.data,
     //     //     }
-         
+
     //     this.props.dispatch(fetchCart(cartItems[[]])) 
     //     //ToastAndroid.show(' Tests in your Cart added successfully',ToastAndroid.SHORT);
-    
+
     //     // }
     //     // else{
-    
+
     //     //     ToastAndroid.show('Hii! your cart is empty ',ToastAndroid.SHORT)
     //     // }
     // }
@@ -112,7 +112,7 @@ export default class BuyNowAddress extends Component {
     //     {
     //         if(this.state.pincode.length ==6 && this.state.phoneNo.length ==10){
 
-      
+
 
     //     let data = {
     //         user_id: this.state.userdata.id, 
@@ -136,9 +136,9 @@ export default class BuyNowAddress extends Component {
     //             account: result.data,
     //         });
     //         ToastAndroid.show('Order Placed Successfully', ToastAndroid.SHORT);
-           
+
     //            this.props.dispatch(fetchCart({data:[],image_url:this.props.image_url})) 
-              //  Navigation.navigate('Payment');
+    //  Navigation.navigate('Payment');
 
 
     //         this.setState({
@@ -167,51 +167,51 @@ export default class BuyNowAddress extends Component {
 
     // }
 
- placeOrder = async () => {
-     
-    this.props.navigation.navigate('Payment')
+    placeOrder = async () => {
 
- }
+        this.props.navigation.navigate('Payment')
+
+    }
 
 
-   
 
-   
+
+
 
     render() {
         return (
             <View style={styles.mainview}>
-                 <StatusBar barStyle="dark-content" backgroundColor="#FDFDFD"/>
+                <StatusBar barStyle="dark-content" backgroundColor="#FDFDFD" />
 
 
-                 
+
                 <LinearGradient
-                      
-                      start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-                      colors={[colors.headercolor31, colors.headercolor32,]}
-                      style={
-                          styles.Upper
+                    start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-                      //     justifyContent: 'space-between', flexDirection: 'row', height: 60, 
-                      //   alignItems:'center', width:'100%',elevation:15
-                      }>
+                    colors={[colors.headercolor31, colors.headercolor32,]}
+                    style={
+                        styles.Upper
 
-                
+                        //     justifyContent: 'space-between', flexDirection: 'row', height: 60, 
+                        //   alignItems:'center', width:'100%',elevation:15
+                    }>
+
+
                     <Pressable
-                     onPress={() => this.props.navigation.dispatch(backAction)}>
-                        <View style={{ justifyContent: 'center', alignItems: 'center',  marginTop: 18, marginLeft:15}}>
+                        onPress={() => this.props.navigation.dispatch(backAction)}>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 18, marginLeft: 15 }}>
                             <Icon name="ios-arrow-back" type='Ionicons'
                                 style={{ color: "#fff", fontSize: 28, }} />
                         </View>
                     </Pressable>
-                        <View style={{ width: '60%', marginTop: 18, }}>
-                            <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>Fill Up For Buying</Text>
-                        </View>
+                    <View style={{ width: '60%', marginTop: 18, }}>
+                        <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>Fill Up For Buying</Text>
+                    </View>
 
-                    
-                  </LinearGradient>
-                
+
+                </LinearGradient>
+
                 {/* <View style={styles.Upper}>
                         <Pressable onPress={() => this.props.navigation.navigate('TestCart')}>
                             <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 18, marginLeft: 15 }}>
@@ -234,9 +234,11 @@ export default class BuyNowAddress extends Component {
                             <Image source={require('../../assests/person.png')}
                                 style={{ height: 60, width: 60, borderRadius: 30, alignSelf: 'center', top: -50, right: -110 }} /> */}
 
-                            <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60,
-                             alignSelf: 'center',marginTop:30 }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14,marginLeft:6 }}>Full Name</Label>
+                            <Item stackedLabel style={{
+                                borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60,
+                                alignSelf: 'center', marginTop: 30
+                            }}>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Full Name</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ fullName: value })}
@@ -246,19 +248,19 @@ export default class BuyNowAddress extends Component {
                             </Item>
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Phone No</Label>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Phone No</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ phoneNo: value })}
                                     value={this.state.phoneNo}
 
-                                    placeholder='Phone No' placeholderTextColor="#B0B3B0" keyboardType="number-pad" 
+                                    placeholder='Phone No' placeholderTextColor="#B0B3B0" keyboardType="number-pad"
                                     maxLength={10} style={{ fontSize: 14 }} />
                             </Item>
 
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Email</Label>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Email</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ email: value })}
@@ -270,7 +272,7 @@ export default class BuyNowAddress extends Component {
 
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Address</Label>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Address</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ address: value })}
@@ -279,7 +281,7 @@ export default class BuyNowAddress extends Component {
                                     placeholder='Address' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
                             </Item>
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>Landmark</Label>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Landmark</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ landmark: value })}
@@ -288,7 +290,7 @@ export default class BuyNowAddress extends Component {
                                     placeholder='Landmark' placeholderTextColor="#B0B3B0" style={{ fontSize: 14 }} />
                             </Item>
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>City</Label>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>City</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ city: value })}
@@ -298,7 +300,7 @@ export default class BuyNowAddress extends Component {
                             </Item>
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14 ,marginLeft:6}}>State</Label>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>State</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ state: value })}
@@ -309,14 +311,14 @@ export default class BuyNowAddress extends Component {
 
 
                             <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center' }}>
-                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14,marginLeft:6 }}>Pincode</Label>
+                                <Label style={{ fontWeight: 'bold', width: 80, color: '#1273de', fontSize: 14, marginLeft: 6 }}>Pincode</Label>
 
                                 <Input
                                     onChangeText={(value) => this.setState({ pincode: value })}
                                     value={this.state.pincode}
 
                                     placeholder='Pincode' placeholderTextColor="#B0B3B0" keyboardType="number-pad"
-                                    maxLength={6}  style={{ fontSize: 14 }} />
+                                    maxLength={6} style={{ fontSize: 14 }} />
                             </Item>
 
                             {/* <Item stackedLabel style={{ borderBottomColor: '#1273de', borderBottomWidth: 1.8, width: width - 60, alignSelf: 'center', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
@@ -336,7 +338,7 @@ export default class BuyNowAddress extends Component {
                             </Item> */}
 
                             <View style={{ marginVertical: 10, marginLeft: 20 }}>
-                               
+
                             </View>
 
                         </Card>
@@ -358,8 +360,8 @@ export default class BuyNowAddress extends Component {
                             <TouchableOpacity
                                 //  onPress={() => this.addtoCart()}
 
-                                style={{ justifyContent: 'center',   width: '80%', borderWidth:1 }}
-                                >
+                                style={{ justifyContent: 'center', width: '80%', borderWidth: 1 }}
+                            >
 
                                 <LinearGradient
 
@@ -368,15 +370,16 @@ export default class BuyNowAddress extends Component {
 
                                     colors={[colors.headercolor31, colors.headercolor32,]}
                                     style={{
-                                        justifyContent: 'center',  width: '98%', alignSelf: 'center', alignItems: 'center', height: 50,
-                                        borderRadius: 7, backgroundColor: '#C36BB9',}}
-                                     >
+                                        justifyContent: 'center', width: '98%', alignSelf: 'center', alignItems: 'center', height: 50,
+                                        borderRadius: 7, backgroundColor: '#C36BB9',
+                                    }}
+                                >
 
                                     <Text style={{ color: '#FFFDF3', fontWeight: 'bold', textAlign: 'center', fontSize: 16 }}>Place Order</Text>
 
                                 </LinearGradient>
                             </TouchableOpacity>
-                            
+
 
 
                         </View>
@@ -391,12 +394,12 @@ export default class BuyNowAddress extends Component {
 // const mapStateToProps=(state)=>({
 //     //  console.log("state.TestCartItem.cartItems",state.TestCartItem.cartItems)
 //     //   return{
-  
+
 //       cartItems:state.TestCartItem.cartItems,
 //       image_url:state.TestCartItem.image_url,
-  
+
 //   })
-  
+
 //   export default connect(mapStateToProps)(BuyNowAddress);
 
 
@@ -434,7 +437,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         flexDirection: 'row',
-        elevation:8
+        elevation: 8
         // marginHorizontal: 15,
         // marginTop: 15,
 

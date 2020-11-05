@@ -26,16 +26,16 @@ export default class EcomScreen extends Component {
             // console.log('object',item)
             return (
                 <View key={index}
-                style={{ height: 60, width: '100%', marginTop: 15, flexDirection: 'row', }}>
+                    style={{ height: 60, width: '100%', marginTop: 15, flexDirection: 'row', }}>
 
                     {/* <View style={{ height: 150, width: 160 }}> */}
 
-                        <Image
-                            source={item.product}
-                            style={{
-                                height: 40, width: 115, borderRadius: 20, marginLeft: 5
-                            }}
-                        />
+                    <Image
+                        source={item.product}
+                        style={{
+                            height: 40, width: 115, borderRadius: 20, marginLeft: 5
+                        }}
+                    />
 
                     {/* </View> */}
 
@@ -76,12 +76,12 @@ export default class EcomScreen extends Component {
     render() {
         return (
             <Container style={{ backgroundColor: 'lightblue', flex: 1 }}>
-                <View style={{ width: '100%', marginTop: 20, flexDirection:'row'}}>
+                <View style={{ width: '100%', marginTop: 20, flexDirection: 'row' }}>
 
-                <Icon name="search1"
-                            type='AntDesign'
-                            style={{ fontSize: 18,}}
-                        />
+                    <Icon name="search1"
+                        type='AntDesign'
+                        style={{ fontSize: 18, }}
+                    />
 
 
 
@@ -90,7 +90,7 @@ export default class EcomScreen extends Component {
                         placeholderTextColor="black"
                         style={{
                             fontSize: 18, width: '92%', backgroundColor: 'white', justifyContent: 'center',
-                            alignSelf: 'center', alignContent: 'center', alignItems: 'center',borderRadius:15
+                            alignSelf: 'center', alignContent: 'center', alignItems: 'center', borderRadius: 15
                         }}
                     />
 
@@ -122,8 +122,8 @@ export default class EcomScreen extends Component {
                     {/* </View> */}
 
 
-                   
-                    
+
+
                     {/* <View style={{backgroundColor:'lightblue'}}>
                     <View style={{width:'100%',flexDirection:'row',justifyContent:'center'}}>
                 <View style={{width:'2%'}}></View>
@@ -192,7 +192,7 @@ export default class EcomScreen extends Component {
                 <View style={{width:'2%'}}></View>
             </View>
             </View>  */}
- 
+
 
                 </View>
 

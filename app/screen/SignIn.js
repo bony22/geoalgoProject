@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, Alert, ImageBackground, TouchableOpacity, Pressable,ToastAndroid,StatusBar} from 'react-native'
+import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, Alert, ImageBackground, TouchableOpacity, Pressable, ToastAndroid, StatusBar } from 'react-native'
 import { Container, Icon, Footer, Left, Right, Button } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '@Component/Color';
@@ -20,52 +20,52 @@ export default class SignIn1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            number:'',
-            account:{},
-            user_info:{},
-            otp:null,
-            email:'',
-            image:'',
-            photoName:''
-           
+            number: '',
+            account: {},
+            user_info: {},
+            otp: null,
+            email: '',
+            image: '',
+            photoName: ''
+
         };
     }
-//     async componentDidMount(){
-//         StatusBar.setBackgroundColor("black")
-//         StatusBar.setBarStyle( 'light-content',true)
-        
-    
-      
-//    }
+    //     async componentDidMount(){
+    //         StatusBar.setBackgroundColor("black")
+    //         StatusBar.setBarStyle( 'light-content',true)
+
+
+
+    //    }
     async signin() {
         // console.log('phoneeeeee',this.state.number)
-        if(this.state.number!=''&& this.state.number.length==10){
-        // let data={
-         
-        //   number:this.state.number
-        // }
-        let info =  await Auth.login(this.state.number);
-         console.log('info',info)
-         if(info.status=="true"){
-            this.setState({
-              account: info.data,
-              user_info:info.data,
-              otp:info.otp
-          });
-        //    console.log("data send to verify page",this.state.user_info,this.state.otp)
-          ToastAndroid.show('OTP send successfully', ToastAndroid.SHORT);
-          await Auth.setAccount(this.state.account);
-          Navigation.navigate('Verify',{user_data:this.state.user_info,otp:this.state.otp});
-         }else{
-            ToastAndroid.show('Invalid phone number', ToastAndroid.SHORT)
-         }
+        if (this.state.number != '' && this.state.number.length == 10) {
+            // let data={
+
+            //   number:this.state.number
+            // }
+            let info = await Auth.login(this.state.number);
+            console.log('info', info)
+            if (info.status == "true") {
+                this.setState({
+                    account: info.data,
+                    user_info: info.data,
+                    otp: info.otp
+                });
+                //    console.log("data send to verify page",this.state.user_info,this.state.otp)
+                ToastAndroid.show('OTP send successfully', ToastAndroid.SHORT);
+                await Auth.setAccount(this.state.account);
+                Navigation.navigate('Verify', { user_data: this.state.user_info, otp: this.state.otp });
+            } else {
+                ToastAndroid.show('Invalid phone number', ToastAndroid.SHORT)
+            }
         }
-        else{
-          ToastAndroid.show('Please provide a valid mobile number', ToastAndroid.SHORT)
+        else {
+            ToastAndroid.show('Please provide a valid mobile number', ToastAndroid.SHORT)
         }
-        
-      }
-      
+
+    }
+
 
 
 
@@ -88,7 +88,7 @@ export default class SignIn1 extends Component {
     //       const userInfo = await GoogleSignin.signIn();
     //     //   this.setState({ userInfo });
     //     console.log('user infooo',userInfo)
-       
+
     //     this.setState({
     //         email:userInfo.user.email,
     //         image:userInfo.user.photo,
@@ -96,11 +96,11 @@ export default class SignIn1 extends Component {
     //     })
     //     console.log('emailiiii',this.state.email)
     //     console.log('photo',this.state.image)
-       
-    //     this.gmailverification()
-        
 
-       
+    //     this.gmailverification()
+
+
+
     //     } catch (error) {
     //       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
     //         // user cancelled the login flow
@@ -120,7 +120,7 @@ export default class SignIn1 extends Component {
     //     if(result2 && result2.status=="true"){
     //         this.setState({
     //           account: result2.data,
-              
+
     //       });
     //     }
     //     await Auth.setAccount(this.state.account);
@@ -136,67 +136,70 @@ export default class SignIn1 extends Component {
     render() {
         return (
             <Container style={{ backgroundColor: 'white', flex: 1 }}>
-                <View style={{ flex: 1, backgroundColor: 'white',}}>
+                <View style={{ flex: 1, backgroundColor: 'white', }}>
 
                     {/* <ImageBackground source={require('@asset/flynit.jpg')} style={{ flex: 1 }}
                         blurRadius={2} > */}
-                        <View style={{ height: height, width: '100%', backgroundColor: 'white', flex:1}}>
+                    <View style={{ height: height, width: '100%', backgroundColor: 'white', flex: 1 }}>
 
 
                         <LinearGradient
-                      
-                        start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-                        colors={[colors.headercolor31, colors.headercolor32,]}
-                        style={
-                            styles.Upper
+                            start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-                        //     justifyContent: 'space-between', flexDirection: 'row', height: 60, 
-                        //   alignItems:'center', width:'100%',elevation:15
-                        }>
+                            colors={[colors.headercolor31, colors.headercolor32,]}
+                            style={
+                                styles.Upper
+
+                                //     justifyContent: 'space-between', flexDirection: 'row', height: 60, 
+                                //   alignItems:'center', width:'100%',elevation:15
+                            }>
 
 
 
                             <View style={{
-                               
-                                marginTop: 18,marginHorizontal:5,
-                            }}>
-                                <Pressable 
-                                  onPress={() => this.props.navigation.navigate('Home')}>
 
-                                    <Icon name="arrow-back" type='Ionicons' 
-                                    style={{  fontSize: 25,  color: 'white' }} />
+                                marginTop: 18, marginHorizontal: 5,
+                            }}>
+                                <Pressable
+                                    onPress={() => this.props.navigation.navigate('Home')}>
+
+                                    <Icon name="arrow-back" type='Ionicons'
+                                        style={{ fontSize: 25, color: 'white' }} />
 
                                 </Pressable>
                             </View>
 
-                                <View style={{ justifyContent: 'flex-end', flexDirection: 'row',alignItems:'flex-end',alignContent:'flex-end',alignSelf:'flex-end',
-                            width:'30%',marginLeft:200,marginBottom:20 }}>
-                                 <Pressable 
-                                     onPress={() => this.props.navigation.navigate('SignUp')}>
+                            <View style={{
+                                justifyContent: 'flex-end', flexDirection: 'row', alignItems: 'flex-end', alignContent: 'flex-end', alignSelf: 'flex-end',
+                                width: '30%', marginLeft: 200, marginBottom: 20
+                            }}>
+                                <Pressable
+                                    onPress={() => this.props.navigation.navigate('SignUp')}>
                                     <Text style={{
-                                        fontSize: 13, fontWeight: 'bold', color: 'white',marginRight:20
-                                       
-                                    }}>SIGN UP</Text>
-                                    </Pressable>
+                                        fontSize: 13, fontWeight: 'bold', color: 'white', marginRight: 20
 
-                                    <Pressable 
-                                     onPress={() => this.props.navigation.navigate('Home')}>
+                                    }}>SIGN UP</Text>
+                                </Pressable>
+
+                                <Pressable
+                                    onPress={() => this.props.navigation.navigate('Home')}>
 
                                     <Text
-                                    
-                                     style={{ fontSize: 13, fontWeight: 'bold', color: 'white',
-                                       
-                                    }}>SKIP</Text>
-                                    </Pressable>
 
-                                </View>
+                                        style={{
+                                            fontSize: 13, fontWeight: 'bold', color: 'white',
+
+                                        }}>SKIP</Text>
+                                </Pressable>
+
+                            </View>
 
                             {/* </View> */}
 
-                            </LinearGradient>
+                        </LinearGradient>
 
-                            {/* <View style={{
+                        {/* <View style={{
                                 justifyContent: 'flex-start', justifyContent: 'flex-start', alignSelf: 'flex-start',
                                 height: 40, width: width,
 
@@ -204,71 +207,71 @@ export default class SignIn1 extends Component {
                                 
                             </View> */}
 
-                            <Text style={{
-                                    fontSize: 22, fontWeight: 'bold', color: 'black',marginLeft:20,marginTop:25,
-                                    marginBottom:15,marginTop:60
+                        <Text style={{
+                            fontSize: 22, fontWeight: 'bold', color: '#1273de', marginLeft: 20, marginTop: 25,
+                            marginBottom: 15, marginTop: 60
 
-                                }}>Sign in to continue</Text>
-
-
-
-                            <View style={{ justifyContent:'center',alignItems:'center',marginHorizontal:20 }}>
+                        }}>Sign in to continue</Text>
 
 
-                          
+
+                        <View style={{ justifyContent: 'center', alignItems: 'center', marginHorizontal: 20 }}>
 
 
-                                    <TextInput
-
-                                        style={{
-                                            marginBottom:20, color: '#fff',width:'100%',
-                                            borderBottomColor: '#f8f8f8', borderBottomWidth: 1,
-                                        }}
-
-                                        placeholder='Enter 10 digit Mobile Number'
-                                        placeholderTextColor="#000" underlineColorAndroid={'black'}
-                                        keyboardType="number-pad"
-                                        onChangeText={(value)=>this.setState({number:value})}
-                                        value={this.state.number} 
-                                    />
-
-<TextInput
-
-style={{
-    marginBottom:20, color: '#fff',width:'100%',
-    borderBottomColor: '#f8f8f8', borderBottomWidth: 1,
-}}
-
-placeholder='Enter Password'
-placeholderTextColor="#000" underlineColorAndroid={'black'}
-keyboardType="number-pad"
-onChangeText={(value)=>this.setState({number:value})}
-value={this.state.number} 
-/>
 
 
-                                    <TouchableOpacity
-                                   //  onPress={() => this.signin()}
-                                        style={styles.listView}>
-                                            <LinearGradient
+
+                            <TextInput
+
+                                style={{
+                                    marginBottom: 20, color: '#fff', width: '100%',
+                                    borderBottomColor: '#f8f8f8', borderBottomWidth: 1,
+                                }}
+
+                                placeholder='Enter 10 digit Mobile Number'
+                                placeholderTextColor="#B0B3B0" underlineColorAndroid={'#1273de'}
+                                keyboardType="number-pad"
+                                onChangeText={(value) => this.setState({ number: value })}
+                                value={this.state.number}
+                            />
+
+                            <TextInput
+
+                                style={{
+                                    marginBottom: 20, color: '#fff', width: '100%',
+                                    borderBottomColor: '#f8f8f8', borderBottomWidth: 1,
+                                }}
+
+                                placeholder='Enter Password'
+                                placeholderTextColor="#B0B3B0" underlineColorAndroid={'#1273de'}
+                                keyboardType="number-pad"
+                                onChangeText={(value) => this.setState({ number: value })}
+                                value={this.state.number}
+                            />
 
 
-                        start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
+                            <TouchableOpacity
+                                //  onPress={() => this.signin()}
+                                style={styles.listView}>
+                                <LinearGradient
 
-                        
-                        colors={[colors.headercolor31, colors.headercolor32, ]}
-                        style={styles.listView}>
-                        
-                                    <Text style={{ color: 'seashell',  fontSize: 15, fontWeight: 'bold' }}>
-                                            Continue</Text>
-                                            </LinearGradient>
-                                    </TouchableOpacity>
 
-                           
+                                    start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-                                <View style={{
+
+                                    colors={[colors.headercolor31, colors.headercolor32,]}
+                                    style={styles.listView}>
+
+                                    <Text style={{ color: 'seashell', fontSize: 15, fontWeight: 'bold' }}>
+                                        Continue</Text>
+                                </LinearGradient>
+                            </TouchableOpacity>
+
+
+
+                            <View style={{
                                 justifyContent: 'space-between', flexDirection: 'row', height: 25,
-                            width:'100%',
+                                width: '100%',
                             }}>
 
                                 <View style={styles.hairline} />
@@ -280,13 +283,13 @@ value={this.state.number}
 
 
 
-{/* 
+                            {/* 
                                 <View style={{
                                     justifyContent: 'center', flexDirection: 'row', height: 70,
                                     width: width, alignSelf: 'center', marginTop: 15,
                                 }}> */}
 
-                                    {/* <TouchableOpacity 
+                            {/* <TouchableOpacity 
                                     // onPress={() => this.props.navigation.navigate('Verify')}
                                         style={styles.fbButton}>
                                         <Left>
@@ -302,55 +305,55 @@ value={this.state.number}
                                     </TouchableOpacity> */}
 
 
-                                {/* </View>  */}
+                            {/* </View>  */}
 
 
 
-                                 {/* <View style={{
+                            {/* <View style={{
                                     justifyContent: 'center', flexDirection: 'row', height: 65, width: width,
                                     alignSelf: 'center', marginTop: 15,
                                 }}>  */}
 
 
 
-                                    <TouchableOpacity 
-                                  //  onPress={() => this.googlesignIn()}
-                                        // style={styles.googleButton}
-                                        >
-                                              <LinearGradient
+                            <TouchableOpacity
+                            //  onPress={() => this.googlesignIn()}
+                            // style={styles.googleButton}
+                            >
+                                <LinearGradient
 
 
-                                            start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
+                                    start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
 
-                                            colors={[colors.headercolor31, colors.headercolor32, ]}
-                                            style={styles.googleButton}>
-                                        <Left>
-                                            <Image
-                                                source={require('@asset/google1.png')}
-                                                style={{
-                                                    height: 20, width: 20, borderRadius: 100, fontSize: 22, 
-                                                    marginLeft: 20,
-                                                    marginTop: 5
-                                                }}
-                                            /></Left>
+                                    colors={[colors.headercolor31, colors.headercolor32,]}
+                                    style={styles.googleButton}>
+                                    <Left>
+                                        <Image
+                                            source={require('@asset/google1.png')}
+                                            style={{
+                                                height: 20, width: 20, borderRadius: 100, fontSize: 22,
+                                                marginLeft: 20,
+                                                marginTop: 5
+                                            }}
+                                        /></Left>
 
-                                        <Text style={{
-                                            color: 'white',  fontSize: 15, fontWeight: 'bold', textAlign: 'center',
-                                            marginRight: 70
-                                        }}>
-                                            Continue with Google</Text>
-                                            </LinearGradient>
+                                    <Text style={{
+                                        color: 'white', fontSize: 15, fontWeight: 'bold', textAlign: 'center',
+                                        marginRight: 70
+                                    }}>
+                                        Continue with Google</Text>
+                                </LinearGradient>
 
-                                    </TouchableOpacity>
-                                 {/* </View> */}
+                            </TouchableOpacity>
+                            {/* </View> */}
 
-                            </View>
-
-
+                        </View>
 
 
-                            {/* <View style={{
+
+
+                        {/* <View style={{
                                 justifyContent: 'center', alignSelf: 'center',
                                 height: 20, bottom:15,position:'absolute'
                             }}>
@@ -367,7 +370,7 @@ value={this.state.number}
 
 
 
-                        </View>
+                    </View>
                     {/* </ ImageBackground> */}
                 </View>
             </Container >
@@ -406,8 +409,8 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         flexDirection: 'row',
-        elevation:8,
-        width:'100%'
+        elevation: 8,
+        width: '100%'
         // marginHorizontal: 15,
         // marginTop: 15,
 
@@ -423,9 +426,9 @@ const styles = StyleSheet.create({
         // marginLeft: 38,
         // marginRight: 36,
         // marginBottom: 10,
-       // backgroundColor: 'grey',
+        // backgroundColor: 'grey',
         borderRadius: 5,
-     
+
 
     },
     fbButton: {
@@ -456,11 +459,11 @@ const styles = StyleSheet.create({
         // marginRight: 20,
         //marginBottom: 10,
         //backgroundColor: '#000000',
-      backgroundColor: 'black',
+        backgroundColor: 'black',
         borderRadius: 5,
         // borderWidth: 2,
-        color: 'white', 
-        padding: 11, 
+        color: 'white',
+        padding: 11,
         flexDirection: 'row',
         marginTop: 15,
         alignItems: "center",
@@ -478,13 +481,13 @@ const styles = StyleSheet.create({
     lineLowText1: {
         fontFamily: 'AvenirNext-Bold',
         fontSize: 15,
-       // paddingHorizontal: 5,
+        // paddingHorizontal: 5,
         //alignSelf: 'center',
         color: '#A2A2A2',
         // marginTop: 7,
-        width:'20%',
-        textAlign:'center',
-        marginTop:7
+        width: '20%',
+        textAlign: 'center',
+        marginTop: 7
     },
 
 })

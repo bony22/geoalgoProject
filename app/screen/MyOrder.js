@@ -7,7 +7,7 @@ import { NavigationActions } from 'react-navigation';
 
 const backAction = NavigationActions.back({
     // key: 'Profile',
-  });
+});
 
 const { height, width } = Dimensions.get("window")
 export default class MyOrder extends Component {
@@ -17,18 +17,18 @@ export default class MyOrder extends Component {
 
             VariusItems1: [
 
-                { product: require('@asset/apparel.jpg'), productname: 'Apperal', brand: "Raymonds", price: 'Rs. 80',delivery: 'delivered' },
-                { product: require('@asset/eyewear.png'), productname: 'EyeWear', brand: "Boat", price: 'Rs. 250',delivery: 'will be delivered soon' },
-                { product: require('@asset/pixel.jpg'), productname: 'Watches', brand: "Prapti", price: 'Rs. 75' ,delivery: 'will be delivered soon'},
-                { product: require('@asset/lipstick.jpg'), productname: 'Beauty', brand: "Mama n me", price: '50',delivery: 'delivered' },
-                { product: require('@asset/jew.jpg'), productname: ' Jewelry', brand: "Nike", price: 'Rs. 120',delivery: 'delivered' },
-                { product: require('@asset/bags.jpg'), productname: 'Bags', brand: "Apple", price: 'Rs. 349' ,delivery: 'will be delivered soon'},
-                { product: require('@asset/flynit.jpg'), productname: 'Footwear', brand: "Nike", price: 'Rs. 120',delivery: 'delivered' },
-                { product: require('@asset/facewash.jpg'), productname: 'Cosmetics', brand: "Apple", price: 'Rs. 349',delivery: 'will be delivered soon' },
-                { product: require('@asset/electronics.jpg'), productname: 'Electronics', brand: "Nivea", price: 'Rs. 65' ,delivery: 'will be delivered soon'},
-                
+                { product: require('@asset/apparel.jpg'), productname: 'Apperal', brand: "Raymonds", price: 'Rs. 80', delivery: 'delivered' },
+                { product: require('@asset/eyewear.png'), productname: 'EyeWear', brand: "Boat", price: 'Rs. 250', delivery: 'will be delivered soon' },
+                { product: require('@asset/pixel.jpg'), productname: 'Watches', brand: "Prapti", price: 'Rs. 75', delivery: 'will be delivered soon' },
+                { product: require('@asset/lipstick.jpg'), productname: 'Beauty', brand: "Mama n me", price: '50', delivery: 'delivered' },
+                { product: require('@asset/jew.jpg'), productname: ' Jewelry', brand: "Nike", price: 'Rs. 120', delivery: 'delivered' },
+                { product: require('@asset/bags.jpg'), productname: 'Bags', brand: "Apple", price: 'Rs. 349', delivery: 'will be delivered soon' },
+                { product: require('@asset/flynit.jpg'), productname: 'Footwear', brand: "Nike", price: 'Rs. 120', delivery: 'delivered' },
+                { product: require('@asset/facewash.jpg'), productname: 'Cosmetics', brand: "Apple", price: 'Rs. 349', delivery: 'will be delivered soon' },
+                { product: require('@asset/electronics.jpg'), productname: 'Electronics', brand: "Nivea", price: 'Rs. 65', delivery: 'will be delivered soon' },
+
             ]
-           
+
         };
     }
     list = () => {
@@ -54,7 +54,7 @@ export default class MyOrder extends Component {
                             }}>
                                 <View style={{ width: '20%' }}>
                                     <Image source={element.product}
-                                        style={{ height: 80, width: 80, alignSelf: 'center', marginLeft:20 }}
+                                        style={{ height: 80, width: 80, alignSelf: 'center', marginLeft: 20 }}
                                     />
                                 </View>
                                 <View style={{ width: '80%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -65,18 +65,18 @@ export default class MyOrder extends Component {
                                         <Text style={{
                                             // color:'#006565',
                                             color: 'black',
-                                            fontSize: 16, letterSpacing: 1,marginLeft:20
+                                            fontSize: 16, letterSpacing: 1, marginLeft: 20
                                         }}>{element.productname}</Text>
                                         <Text numberOfLines={1} style={{
                                             // color:'#006565',
                                             color: 'black',
-                                            fontSize: 12, letterSpacing: 1,marginLeft:20
+                                            fontSize: 12, letterSpacing: 1, marginLeft: 20
                                         }}>{element.brand}</Text>
 
                                         <Text numberOfLines={1} style={{
                                             // color:'#006565',
                                             color: 'black',
-                                            fontSize: 12, letterSpacing: 1,marginLeft:20
+                                            fontSize: 12, letterSpacing: 1, marginLeft: 20
                                         }}>{element.price}</Text>
 
 
@@ -88,25 +88,25 @@ export default class MyOrder extends Component {
 
 
                                     {/* </View> */}
-                                   
+
                                 </View>
 
                             </View>
 
                             <View style={{
-                    height: 1,
-                    width:'100%',
-                    backgroundColor: '#cccccc',
-                    alignSelf: 'stretch',
-                    opacity:.9
-                   
-                }} />
+                                height: 1,
+                                width: '100%',
+                                backgroundColor: '#cccccc',
+                                alignSelf: 'stretch',
+                                opacity: .9
+
+                            }} />
 
                             <View style={{ width: width, justifyContent: 'flex-start', flexDirection: 'row' }}>
                                 <Text numberOfLines={1} style={{
                                     // color:'#006565',
                                     color: '#1273de',
-                                    fontSize: 12, letterSpacing: 1,marginLeft:10
+                                    fontSize: 12, letterSpacing: 1, marginLeft: 10
                                 }}>{element.delivery}</Text>
                             </View>
                         </Card>
@@ -123,32 +123,32 @@ export default class MyOrder extends Component {
     render() {
         return (
             <View style={{ flex: 1, }}>
-                 <LinearGradient
-                      
-                      start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
+                <LinearGradient
 
-                      colors={[colors.headercolor31, colors.headercolor32,]}
-                      style={
-                          styles.Upper
+                    start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-                      //     justifyContent: 'space-between', flexDirection: 'row', height: 60, 
-                      //   alignItems:'center', width:'100%',elevation:15
-                      }>
+                    colors={[colors.headercolor31, colors.headercolor32,]}
+                    style={
+                        styles.Upper
 
-                
+                        //     justifyContent: 'space-between', flexDirection: 'row', height: 60, 
+                        //   alignItems:'center', width:'100%',elevation:15
+                    }>
+
+
                     <Pressable
-                     onPress={() => this.props.navigation.dispatch(backAction)}>
-                        <View style={{ justifyContent: 'center', alignItems: 'center',  marginTop: 18, marginLeft:15}}>
+                        onPress={() => this.props.navigation.dispatch(backAction)}>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 18, marginLeft: 15 }}>
                             <Icon name="ios-arrow-back" type='Ionicons'
                                 style={{ color: "#fff", fontSize: 28, }} />
                         </View>
                     </Pressable>
-                        <View style={{ width: '60%', marginTop: 18, }}>
-                            <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>All Orders</Text>
-                        </View>
+                    <View style={{ width: '60%', marginTop: 18, }}>
+                        <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold', marginLeft: 20 }}>All Orders</Text>
+                    </View>
 
-                    
-                  </LinearGradient>
+
+                </LinearGradient>
                 <ScrollView>
 
 
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         flexDirection: 'row',
-        elevation:8
+        elevation: 8
         // marginHorizontal: 15,
         // marginTop: 15,
 

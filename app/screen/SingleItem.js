@@ -10,71 +10,71 @@ export default class SingleItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bid:this.props.id,
-      details:''
+      bid: this.props.id,
+      details: ''
 
     };
   }
 
-  async componentDidMount(){
-   
-    console.log('object45345345345',this.state.bid)
+  async componentDidMount() {
+
+    console.log('object45345345345', this.state.bid)
     await this.singleItem1();
-   
-}
 
-// listItem1 = async() =>{
+  }
 
-//     let resp =await fetch('http://www.adroitinclusive.com:81/data.php')
-//     let respJson= await resp.json()
+  // listItem1 = async() =>{
 
-//     this.setState({
-//         data:respJson,
-//         indicatorLoading:false,
-    
-      
-//     })
-//     console.log(respJson)
-// }
+  //     let resp =await fetch('http://www.adroitinclusive.com:81/data.php')
+  //     let respJson= await resp.json()
 
-singleItem1 = async () => {
-let data = {
-   action:'select',
-   bID: this.state.bid
+  //     this.setState({
+  //         data:respJson,
+  //         indicatorLoading:false,
 
-}
-  
-  const rawResponse = await fetch('http://www.adroitinclusive.com:81/data.php', {
-    
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-    // body:data
-  });
-  const content = await rawResponse.json();
-  
-  console.log(this.state.details);
-  console.log('object22255225',content)
 
-  
+  //     })
+  //     console.log(respJson)
+  // }
 
-  var res = content.reduce((a, b) => ({ ...a, ...b }))
-  this.setState({
-    details:res
-  })   
-  console.log('hvhkvhvk',res)
+  singleItem1 = async () => {
+    let data = {
+      action: 'select',
+      bID: this.state.bid
 
-};
+    }
 
-addtoCart =()=>{
+    const rawResponse = await fetch('http://www.adroitinclusive.com:81/data.php', {
 
-  this.props.hideModal1()
-  this.props.navigation.navigate('CartItem')
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+      // body:data
+    });
+    const content = await rawResponse.json();
 
-}
+    console.log(this.state.details);
+    console.log('object22255225', content)
+
+
+
+    var res = content.reduce((a, b) => ({ ...a, ...b }))
+    this.setState({
+      details: res
+    })
+    console.log('hvhkvhvk', res)
+
+  };
+
+  addtoCart = () => {
+
+    this.props.hideModal1()
+    this.props.navigation.navigate('CartItem')
+
+  }
 
 
 
@@ -83,15 +83,15 @@ addtoCart =()=>{
     return (
       <View style={styles.mainview}>
         <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', marginTop: 10 }}>
-          <View style={{ width: '30%', justifyContent: 'center', alignItems: 'center', height: 100,  }}>
-            <Image source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQC0Yry5sRpC6f-RSV6cdSmf9ooukKOYk8CQ&usqp=CAU'}}
-              style={{ height: 90, width: 90, alignSelf: 'center', borderRadius: 10 ,}}
+          <View style={{ width: '30%', justifyContent: 'center', alignItems: 'center', height: 100, }}>
+            <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQC0Yry5sRpC6f-RSV6cdSmf9ooukKOYk8CQ&usqp=CAU' }}
+              style={{ height: 90, width: 90, alignSelf: 'center', borderRadius: 10, }}
             />
           </View>
           <View style={{ width: '5%' }}></View>
           <View style={{ width: '60%', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', height: 80 }}>
             {/* <View style={{justifyContent:'center',alignItems:'center',width:'20%'}}> */}
-            <Text numberOfLines={2} style={{ fontSize: 18, fontWeight: 'bold', color:'black'}}>{this.state.details.name}</Text>
+            <Text numberOfLines={2} style={{ fontSize: 18, fontWeight: 'bold', color: 'black' }}>{this.state.details.name}</Text>
             {/* </View> */}
 
 
@@ -174,38 +174,41 @@ addtoCart =()=>{
 
           </View>
           <TouchableOpacity
-           onPress={() => this.addtoCart()}
-          
-          style={{ justifyContent: 'center', alignItems: 'center', width: '60%', }}>
+            onPress={() => this.addtoCart()}
 
-          <LinearGradient
+            style={{ justifyContent: 'center', alignItems: 'center', width: '60%', }}>
+
+            <LinearGradient
 
 
-            start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
+              start={{ x: 0.0, y: 0.0 }} end={{ x: 1, y: 1 }}
 
-            colors={[colors.headercolor31, colors.headercolor32, ]}
-            style={{
-              justifyContent: 'center', width: '55%', alignSelf: 'center', alignItems: 'center', height: 35,
-                borderRadius: 7, backgroundColor: '#C36BB9',}} >
+              colors={[colors.headercolor31, colors.headercolor32,]}
+              style={{
+                justifyContent: 'center', width: '55%', alignSelf: 'center', alignItems: 'center', height: 35,
+                borderRadius: 7, backgroundColor: '#C36BB9',
+              }} >
 
               <Text style={{ color: '#FFFFFF' }}>Add to Cart</Text>
 
-          </LinearGradient>
+            </LinearGradient>
           </TouchableOpacity>
 
-         
+
 
         </View>
 
-        <View style={{ width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'row',
-          marginLeft:50,marginTop:20}}>
-        <Text style={{ color: 'black',fontWeight:'bold',fontSize:15}}>Price :</Text>
-        <Text style={{ color: 'black' }}> {this.state.details.price}</Text>
+        <View style={{
+          width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'row',
+          marginLeft: 50, marginTop: 20
+        }}>
+          <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 15 }}>Price :</Text>
+          <Text style={{ color: 'black' }}> {this.state.details.price}</Text>
         </View>
 
 
 
-        <View style={{ justifyContent: 'flex-start', alignItems: 'flex-start', marginTop: 50, marginLeft: 30}}>
+        <View style={{ justifyContent: 'flex-start', alignItems: 'flex-start', marginTop: 50, marginLeft: 30 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'white', marginLeft: 10, color: 'black' }}>Description:</Text>
         </View>
 
@@ -217,9 +220,9 @@ addtoCart =()=>{
           <Text
             multiline={true}
             numberOfLines={4}
-            style={{ color: 'black', fontSize: 15,padding:10 }}>
-           Biba Apparels is an Indian fashion brand for women and girls founded by 
-           Meena Bindra in 1988 from her home in New Delhi, India.It has more than 150 brand outlets and 225 multi-brand outlets.
+            style={{ color: 'black', fontSize: 15, padding: 10 }}>
+            Biba Apparels is an Indian fashion brand for women and girls founded by
+            Meena Bindra in 1988 from her home in New Delhi, India.It has more than 150 brand outlets and 225 multi-brand outlets.
             Biba recorded sales of INR 600 crore in 2014-15.
             </Text>
 
@@ -253,8 +256,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     width: width - 30,
-   // borderWidth:0.1,
-   borderRadius:10
+    // borderWidth:0.1,
+    borderRadius: 10
 
 
   },

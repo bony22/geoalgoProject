@@ -81,7 +81,7 @@ export default class Profile extends Component {
     }
 
 
-  
+
 
     // myprofileFetch1 = async () => {
 
@@ -468,7 +468,7 @@ export default class Profile extends Component {
 
 
 
-                                <TouchableOpacity
+                            <TouchableOpacity
                                 //  onPress={() => this.addtoCart()}
 
                                 style={{ justifyContent: 'center', alignItems: 'center', width: '60%', }}>
@@ -480,11 +480,11 @@ export default class Profile extends Component {
 
                                     colors={[colors.headercolor31, colors.headercolor32,]}
                                     style={{
-                                        justifyContent: 'center', width: '55%',alignSelf: 'center', alignItems: 'center', height: 50,
+                                        justifyContent: 'center', width: '55%', alignSelf: 'center', alignItems: 'center', height: 50,
                                         borderRadius: 7, backgroundColor: '#C36BB9',
                                     }} >
 
-                                    <Text style={{ color: '#FFFFFF',fontWeight:'bold',fontSize:18 }}>Cancel</Text>
+                                    <Text style={{ color: '#FFFFFF', fontWeight: 'bold', fontSize: 18 }}>Cancel</Text>
 
                                 </LinearGradient>
                             </TouchableOpacity>
@@ -525,7 +525,7 @@ export default class Profile extends Component {
                             <TouchableOpacity
                                 //  onPress={() => this.addtoCart()}
 
-                                style={{ justifyContent: 'center', alignItems: 'center',  width: '60%', }}>
+                                style={{ justifyContent: 'center', alignItems: 'center', width: '60%', }}>
 
                                 <LinearGradient
 
@@ -534,11 +534,11 @@ export default class Profile extends Component {
 
                                     colors={[colors.headercolor31, colors.headercolor32,]}
                                     style={{
-                                        justifyContent: 'center',  width: '55%', alignSelf: 'center', alignItems: 'center', height: 50,
+                                        justifyContent: 'center', width: '55%', alignSelf: 'center', alignItems: 'center', height: 50,
                                         borderRadius: 7, backgroundColor: '#C36BB9',
                                     }} >
 
-                                    <Text style={{ color: '#FFFFFF',fontWeight:'bold',fontSize:18 }}>Save</Text>
+                                    <Text style={{ color: '#FFFFFF', fontWeight: 'bold', fontSize: 18 }}>Save</Text>
 
                                 </LinearGradient>
                             </TouchableOpacity>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity, Pressable,ImageBackground  } from 'react-native'
+import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, TouchableOpacity, Pressable, ImageBackground } from 'react-native'
 import { Card, Left, CardItem, Item, Input, Label, Button, Right, Container, Icon } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
-import {colors} from '@Component/Color';
+import { colors } from '@Component/Color';
 
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -12,7 +12,7 @@ export default class EcomScreen1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data:[],
+            data: [],
             VariusItems: [
                 { product: require('@asset/flynit.jpg'), catagory: 'Fruits & veggi' },
                 { product: require('@asset/jew.jpg'), productname: ' Jewelry', brand: "Nike", price: '$120' },
@@ -25,7 +25,7 @@ export default class EcomScreen1 extends Component {
                 { product: require('@asset/flynit.jpg'), catagory: 'Fruits & veggi' },
                 { product: require('@asset/shampoo1.jpg'), catagory: 'Bevarages' },
                 { product: require('@asset/lakme.jpg'), catagory: 'Fruits & veggi' },
-               
+
             ],
             VariusItems1: [
 
@@ -38,28 +38,28 @@ export default class EcomScreen1 extends Component {
                 { product: require('@asset/flynit.jpg'), productname: 'Footwear', brand: "Nike", price: '$120' },
                 { product: require('@asset/facewash.jpg'), productname: 'Cosmetics', brand: "Apple", price: '$349' },
                 { product: require('@asset/electronics.jpg'), productname: 'Electronics', brand: "Nivea", price: '$65' },
-                
+
             ]
-               
+
         };
     }
 
 
     // async componentDidMount(){
-   
-    
+
+
     //     await this.listItem1()
-       
-      
+
+
     // }
 
-    
-    listItem1 = async() =>{
-    
-        let resp =await fetch('http://www.adroitinclusive.com:81/data.php')
-        let respJson= await resp.json()
+
+    listItem1 = async () => {
+
+        let resp = await fetch('http://www.adroitinclusive.com:81/data.php')
+        let respJson = await resp.json()
         this.setState({
-            data:respJson
+            data: respJson
         })
         // console.log(respJson)
     }
@@ -101,24 +101,25 @@ export default class EcomScreen1 extends Component {
             return (
                 <View style={{
                     // marginTop: 10 ,
-                padding:5,  }} key={index} >
+                    padding: 5,
+                }} key={index} >
 
-                 
-                    <View style={{ height:100, width:'100%',justifyContent:'center',alignItems:'center', elevation:10}}>
 
-                    <Pressable
-                     style={styles.boxView1} 
-                    onPress={() => this.props.navigation.navigate('ListItem')}
-                    >
-                        <Image
-                            source={element.product}
-                            style={{
-                                height: 90, width: 120, borderRadius: 25,
-                            }}
-                        />
-                    </Pressable>
+                    <View style={{ height: 100, width: '100%', justifyContent: 'center', alignItems: 'center', elevation: 10 }}>
+
+                        <Pressable
+                            style={styles.boxView1}
+                            onPress={() => this.props.navigation.navigate('ListItem')}
+                        >
+                            <Image
+                                source={element.product}
+                                style={{
+                                    height: 90, width: 120, borderRadius: 25,
+                                }}
+                            />
+                        </Pressable>
                     </View>
-                  
+
                 </View>
             );
         });
@@ -144,57 +145,59 @@ export default class EcomScreen1 extends Component {
     //                                  color:'black',
     //                                 //  color:'#006565',
     //                                  letterSpacing:1}}>{element.productname}</Text>
-                                  
+
     //                             </Pressable>
     //                     {/* marginBottom:5,color:'#006565', */}
-    
-    
-                                 
+
+
+
     //                     </View>
     //                             {/* <View style={{width:'2%'}}></View> */}
     //                     {/* </ScrollView>     */}
     //             </View>
-              
+
     //         );
     //     });
     // };
 
     list1 = () => {
         return this.state.VariusItems1.map((element, index) => {
-           // console.log("this.state.image_url+element.image",this.state.image_url+element.image)
+            // console.log("this.state.image_url+element.image",this.state.image_url+element.image)
             return (
-              <TouchableOpacity
-               onPress={() => this.props.navigation.navigate('ListItem')}
-              key={index} >
-           
-             <View style={[ {height:140},{ width:((width)/3-8)},
-             //  index%2!=0? {paddingLeft:8}:{paddingLeft:0},
-             // {padding:3},
-             {marginHorizontal:4}, {marginVertical:4},{backgroundColor:'white'},{elevation:5},{ borderRadius:20,},
-             {alignItems:'center'},{justifyContent:'center'}
-             ]}
-                //  key={index} 
-                 >
-                    
-                     {/* <Image source ={element.img} */}
-                     <Image source ={element.product}
-                     style={{
-                         height:'60%',
-                         width: '80%',
-                         marginTop:5,
-                         borderRadius:15,
-                         resizeMode:'cover'
-                         
-                     }} />
-             
-                                     <Text numberOfLines={1} style={{textAlign:'center',
-                                     color:'black',
-                                    //  color:'#006565',
-                                     letterSpacing:1,padding:5}}>{element.productname}</Text>   
-                                     </View>
-                                     </TouchableOpacity>
-                                  
-                            
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate('ListItem')}
+                    key={index} >
+
+                    <View style={[{ height: 140 }, { width: ((width) / 3 - 8) },
+                    //  index%2!=0? {paddingLeft:8}:{paddingLeft:0},
+                    // {padding:3},
+                    { marginHorizontal: 4 }, { marginVertical: 4 }, { backgroundColor: 'white' }, { elevation: 5 }, { borderRadius: 20, },
+                    { alignItems: 'center' }, { justifyContent: 'center' }
+                    ]}
+                    //  key={index} 
+                    >
+
+                        {/* <Image source ={element.img} */}
+                        <Image source={element.product}
+                            style={{
+                                height: '60%',
+                                width: '80%',
+                                marginTop: 5,
+                                borderRadius: 15,
+                                resizeMode: 'cover'
+
+                            }} />
+
+                        <Text numberOfLines={1} style={{
+                            textAlign: 'center',
+                            color: 'black',
+                            //  color:'#006565',
+                            letterSpacing: 1, padding: 5
+                        }}>{element.productname}</Text>
+                    </View>
+                </TouchableOpacity>
+
+
             );
         });
     };
@@ -202,7 +205,7 @@ export default class EcomScreen1 extends Component {
 
     render() {
         return (
-            <Container style={{flex:1,backgroundColor:'#fff'}}>
+            <Container style={{ flex: 1, backgroundColor: '#fff' }}>
                 {/* <View style={{
                     //  backgroundColor: '#0000cd',
                     // backgroundColor: '#D77FA3',
@@ -215,35 +218,35 @@ export default class EcomScreen1 extends Component {
                      height: 65, width: '100%', flexDirection: 'row', alignItems: 'center',
                     justifyContent: 'space-evenly', elevation: 10
                 }}> */}
-                     <LinearGradient
-//   start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 0.5}}
-start={{x: 0.03, y: 0.0}} end={{x: 1, y: 1}}
- 
-//   colors={['rgba(0,0,0,.1)','rgba(0,0,0,1)']}
-// colors={['#9054D7', '#AE42DF', '#EA95BA','#F34C9A', '#EC0D76']}
-// colors={['#6FD23D','#534CDE', '#7E65E2', '#A885F6', '#7DB2F0',]}
-colors={[colors.headercolor31,colors.headercolor32,]}
-  style={{
-    
-         backgroundColor: '#4b0082',
-   
-   
-     height: 65, width: '100%', flexDirection: 'row', alignItems: 'center',
-    justifyContent: 'space-evenly', elevation: 10
-}}
- 
-  >
-                  
+                <LinearGradient
+                    //   start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 0.5}}
+                    start={{ x: 0.03, y: 0.0 }} end={{ x: 1, y: 1 }}
+
+                    //   colors={['rgba(0,0,0,.1)','rgba(0,0,0,1)']}
+                    // colors={['#9054D7', '#AE42DF', '#EA95BA','#F34C9A', '#EC0D76']}
+                    // colors={['#6FD23D','#534CDE', '#7E65E2', '#A885F6', '#7DB2F0',]}
+                    colors={[colors.headercolor31, colors.headercolor32,]}
+                    style={{
+
+                        backgroundColor: '#4b0082',
+
+
+                        height: 65, width: '100%', flexDirection: 'row', alignItems: 'center',
+                        justifyContent: 'space-evenly', elevation: 10
+                    }}
+
+                >
+
                     <View style={{ hight: 40, width: '13%', justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
-                        <Icon name="menu"
-                            type='Entypo'
-                            style={{ fontSize: 25, color: 'white' }}
-                        />
+                        <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
+                            <Icon name="menu"
+                                type='Entypo'
+                                style={{ fontSize: 25, color: 'white' }}
+                            />
                         </TouchableOpacity>
                     </View>
 
-                   
+
 
                     <View style={{
                         backgroundColor: '#fff', height: 40, width: '63%',
@@ -259,7 +262,7 @@ colors={[colors.headercolor31,colors.headercolor32,]}
 
                     <TouchableOpacity
                         style={{ hight: 40, width: '9%', justifyContent: 'flex-start', alignItems: 'flex-start' }}
-                     onPress={() => this.props.navigation.navigate('CartItem')}
+                        onPress={() => this.props.navigation.navigate('CartItem')}
                     >
                         <Icon name="shoppingcart"
 
@@ -268,8 +271,8 @@ colors={[colors.headercolor31,colors.headercolor32,]}
                         />
                     </TouchableOpacity>
 
-                    <TouchableOpacity 
-                     onPress={() => this.props.navigation.navigate('SignIn')}
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('SignIn')}
                     >
                         <Icon name="user-circle"
                             type='FontAwesome'
@@ -277,20 +280,21 @@ colors={[colors.headercolor31,colors.headercolor32,]}
                         />
                     </TouchableOpacity>
 
-                 
-                    </LinearGradient>
+
+                </LinearGradient>
 
                 {/* </View> */}
 
 
-              
 
-                <View style={{ justifyContent: 'flex-start',alignItems:'flex-start',marginTop:5,backgroundColor:'#fff'
-               }}>
 
-                       
-                            <Text style={{fontWeight:'bold',fontSize:15,color:'white',marginLeft:10,color:'black'}}>Featured:</Text>
-                       
+                <View style={{
+                    justifyContent: 'flex-start', alignItems: 'flex-start', marginTop: 5, backgroundColor: '#fff'
+                }}>
+
+
+                    <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'white', marginLeft: 10, color: 'black' }}>Featured:</Text>
+
                 </View>
 
                 {/* <View style={styles.heading}>
@@ -299,29 +303,29 @@ colors={[colors.headercolor31,colors.headercolor32,]}
                         </View>
                         
                     </View> */}
-                  
-                    {/* <View style={{width:'98%',borderWidth:0.5,borderColor:'#989B98',alignSelf:'center',marginBottom:5}}></View> */}
-                    
 
-                        <View style={{
-                            backgroundColor:'#fff'
-                            }} >
-
-                            <ScrollView horizontal={true}
-                                pagingEnabled
-                              showsHorizontalScrollIndicator={false}
-                            >
-                                {this.list()}
-                            </ScrollView>
-
-                        </View>
+                {/* <View style={{width:'98%',borderWidth:0.5,borderColor:'#989B98',alignSelf:'center',marginBottom:5}}></View> */}
 
 
+                <View style={{
+                    backgroundColor: '#fff'
+                }} >
 
-                        {/* <Text style={{ fontSize: 22, fontWeight: 'bold', 
+                    <ScrollView horizontal={true}
+                        pagingEnabled
+                        showsHorizontalScrollIndicator={false}
+                    >
+                        {this.list()}
+                    </ScrollView>
+
+                </View>
+
+
+
+                {/* <Text style={{ fontSize: 22, fontWeight: 'bold', 
                           left:8,padding: 15,textAlign:'center' }} > Shop By Categories</Text> */}
 
-                        {/* <View style={{height:60}}>
+                {/* <View style={{height:60}}>
 <ScrollView horizontal={true} >
 <TouchableOpacity style={styles.listView}>
        <Text style={{color:'white'}}>
@@ -354,55 +358,57 @@ colors={[colors.headercolor31,colors.headercolor32,]}
 </View>
                         */}
 
-                       
 
-                            <View style={{ justifyContent: 'flex-start',alignItems:'flex-start',marginTop:10,backgroundColor:'#fff'}}>
-                            <Text style={{fontWeight:'bold',fontSize:15,color:'white',marginLeft:10,color:'black'}}>Category:</Text>
-                            </View>
-                            <View style={{height:10,width:'100%'}}></View>
 
-                            {/* <View style={{width:'90%',borderWidth:0.5,borderColor:'#989B98',alignSelf:'center',marginBottom:5}}></View> */}
-                            {/* 
+                <View style={{ justifyContent: 'flex-start', alignItems: 'flex-start', marginTop: 10, backgroundColor: '#fff' }}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'white', marginLeft: 10, color: 'black' }}>Category:</Text>
+                </View>
+                <View style={{ height: 10, width: '100%' }}></View>
+
+                {/* <View style={{width:'90%',borderWidth:0.5,borderColor:'#989B98',alignSelf:'center',marginBottom:5}}></View> */}
+                {/* 
                         <View style={styles.heading}>
                         <View style={{width:'80%',marginVertical:10}}>
                             <Text style={{marginLeft:10,color:'#006565',fontWeight:'bold',width:150}}>Category :</Text>
                         </View>
                         
                     </View> */}
-                  
-                    {/* <View style={{width:'98%',borderWidth:0.5,borderColor:'#989B98',alignSelf:'center',marginBottom:5}}></View> */}
+
+                {/* <View style={{width:'98%',borderWidth:0.5,borderColor:'#989B98',alignSelf:'center',marginBottom:5}}></View> */}
 
 
-                    {/* <ScrollView
+                {/* <ScrollView
                     horizontal={false} 
                   
                     > */}
- <                       ScrollView horizontal={false} showsHorizontalScrollIndicator={false} 
-                         style={{flex:2}}
-                         > 
-                           
-                           
-                            <View style={{justifyContent:'center',alignItems:'center',
-                            flexWrap:'wrap',
-                            flexDirection:'row',
-                            backgroundColor:'#fff'}}>
-                                 {/* <ImageBackground source={require('@asset/gradient1.jpg')} style={{  justifyContent:'center',alignItems:'center',flexWrap:'wrap',
+                <                       ScrollView horizontal={false} showsHorizontalScrollIndicator={false}
+                    style={{ flex: 2 }}
+                >
+
+
+                    <View style={{
+                        justifyContent: 'center', alignItems: 'center',
+                        flexWrap: 'wrap',
+                        flexDirection: 'row',
+                        backgroundColor: '#fff'
+                    }}>
+                        {/* <ImageBackground source={require('@asset/gradient1.jpg')} style={{  justifyContent:'center',alignItems:'center',flexWrap:'wrap',
                             flexDirection:'row',}}  > */}
-                         {/* <ScrollView horizontal={false} showsHorizontalScrollIndicator={false} 
+                        {/* <ScrollView horizontal={false} showsHorizontalScrollIndicator={false} 
                         //  style={{marginLeft:10}}
                          >  */}
-                       
 
-                         {this.list1()}
-                         {/* </ScrollView> */}
-                         {/* </ImageBackground> */}
-                         
-                                </View>
-                               
-                                   </ScrollView>
-                     
 
-                            {/* <View style={{ height: 400, backgroundColor: '#fff' }}>
+                        {this.list1()}
+                        {/* </ScrollView> */}
+                        {/* </ImageBackground> */}
+
+                    </View>
+
+                </ScrollView>
+
+
+                {/* <View style={{ height: 400, backgroundColor: '#fff' }}>
                                 <View style={{ top: 3, flexDirection: 'row', justifyContent: 'space-between', }}>
 
                                     <Image
@@ -483,7 +489,7 @@ colors={[colors.headercolor31,colors.headercolor32,]}
 
 
                             </View> */}
-                            {/* <TouchableOpacity
+                {/* <TouchableOpacity
           activeOpacity={0.7}
         //   onPress={clickHandler}
           style={styles.touchableOpacityStyle}>
@@ -536,27 +542,27 @@ const styles = StyleSheet.create({
         color: 'white', padding: 11
 
     },
-    boxView:{
-        width:100 ,
-        backgroundColor:'#FFFBFA',
-        height:115,
-        alignItems:'center',
-        borderRadius:20,
-        elevation:8,
+    boxView: {
+        width: 100,
+        backgroundColor: '#FFFBFA',
+        height: 115,
+        alignItems: 'center',
+        borderRadius: 20,
+        elevation: 8,
         // marginVertical:10,
-        justifyContent:'center',
-       
+        justifyContent: 'center',
+
     },
-    boxView1:{
+    boxView1: {
         // width:100,
         // backgroundColor:'#FFFBFA',
         // height:150,
         height: 90, width: 120, borderRadius: 25,
-        alignItems:'center',
-       // borderRadius:10,
-        elevation:5,
+        alignItems: 'center',
+        // borderRadius:10,
+        elevation: 5,
         // marginVertical:10,
-        justifyContent:'center',
+        justifyContent: 'center',
     },
     touchableOpacityStyle: {
         position: 'absolute',
@@ -566,14 +572,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         right: 30,
         bottom: 30,
-        backgroundColor:'#228b22',
-        borderRadius:40,
-      },
-      floatingButtonStyle: {
-       
-        fontSize:30,
-        color:'white'
+        backgroundColor: '#228b22',
+        borderRadius: 40,
+    },
+    floatingButtonStyle: {
+
+        fontSize: 30,
+        color: 'white'
         //backgroundColor:'black'
-      },
+    },
 })
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, Text, StyleSheet, Dimensions, TextInput, Image, ImageBackground, Modal, TouchableOpacity, ScrollView, ToastAndroid,ActivityIndicator,
+    View, Text, StyleSheet, Dimensions, TextInput, Image, ImageBackground, Modal, TouchableOpacity, ScrollView, ToastAndroid, ActivityIndicator,
     Pressable,
 } from 'react-native';
 import { Card, Left, CardItem, Item, Input, Icon, Label, Button, Right, Picker, Container, Fab } from 'native-base';
@@ -25,9 +25,9 @@ export default class ListItem extends Component {
             // active: false,
             modalVisible: false,
             modalVisible1: false,
-            data1:[],
-            element1:[],
-            indicatorLoading:true,
+            data1: [],
+            element1: [],
+            indicatorLoading: true,
 
 
             VariusItems1: [
@@ -54,66 +54,66 @@ export default class ListItem extends Component {
     }
 
 
-    async componentDidMount(){
-   
-    
+    async componentDidMount() {
+
+
         await this.listItem1()
-       
-      
+
+
     }
-    
+
     showConfirm(element) {
         this.setState({
-            element1:element,
-             modalVisible: true 
-            });
-            console.log('object111111',element)
+            element1: element,
+            modalVisible: true
+        });
+        console.log('object111111', element)
     }
     hideConfirm() {
         this.setState({ modalVisible: false });
     }
 
     // listItem1 = async() =>{
-       
+
     //     let resp =await fetch('http://www.adroitinclusive.com:81/data.php')
     //     let respJson= await resp.json()
     //     this.setState({
     //         data:respJson,
     //         indicatorLoading:false,
-        
-          
+
+
     //     })
     //     console.log(respJson)
     // }
- 
+
     listItem1 = async () => {
         let data = {
-           action:'all',
+            action: 'all',
         }
-          
-          const rawResponse = await fetch('http://www.adroitinclusive.com:81/data.php', {
-            
+
+        const rawResponse = await fetch('http://www.adroitinclusive.com:81/data.php', {
+
             method: 'POST',
             headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
             // body:data
-          });
-          const content = await rawResponse.json();
+        });
+        const content = await rawResponse.json();
 
-          this.setState({
-                    data1:content,
-                    indicatorLoading:false,
-                
-                  
-                })
-        
-         // console.log(content);
-        
-        };
-        
+        this.setState({
+            data1: content,
+            indicatorLoading: false,
+
+
+        })
+
+        // console.log(content);
+
+    };
+
 
 
     clickHandler = () => {
@@ -136,34 +136,35 @@ export default class ListItem extends Component {
 
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Card style={{
-                            flexDirection: 'row', borderRadius: 9, elevation: 5, width: width - 40,backgroundColor: 'white',
-                          
+                            flexDirection: 'row', borderRadius: 9, elevation: 5, width: width - 40, backgroundColor: 'white',
+
                         }}>
                             <View style={{ width: '20%', marginVertical: 8 }}>
                                 <Image source={{
-                                    uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQC0Yry5sRpC6f-RSV6cdSmf9ooukKOYk8CQ&usqp=CAU'}}
+                                    uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQC0Yry5sRpC6f-RSV6cdSmf9ooukKOYk8CQ&usqp=CAU'
+                                }}
                                     style={{ height: 50, width: 50, alignSelf: 'center' }}
                                 />
                                 {/* <Text>{element.ID}</Text> */}
                             </View>
                             <View style={{ width: '80%', flexDirection: 'row' }}>
                                 <View style={{ justifyContent: 'center', marginHorizontal: 2, width: '65%' }}>
-                                   
-                                    
 
-                                   
+
+
+
                                     <Text style={{
                                         color: 'black',
                                         fontSize: 16, letterSpacing: 1
                                     }}>{element.name}</Text>
 
-                                    
+
                                     <Text numberOfLines={1} style={{
                                         color: 'black',
                                         fontSize: 12, letterSpacing: 1
                                     }}>{element.type}</Text>
 
-                                       
+
 
                                 </View>
 
@@ -197,7 +198,7 @@ export default class ListItem extends Component {
 
                                         // colors={['#9054D7', '#AE42DF', '#EA95BA','#F34C9A', '#EC0D76']}
                                         // colors={['#6FD23D','#534CDE', '#7E65E2', '#A885F6', '#7DB2F0',]}
-                                        colors={[colors.headercolor31, colors.headercolor32, ]}
+                                        colors={[colors.headercolor31, colors.headercolor32,]}
                                         style={{
                                             justifyContent: 'center', width: '55%', alignSelf: 'center', alignItems: 'center', height: 35,
                                             borderRadius: 7, backgroundColor: '#4b0082', elevation: 5
@@ -336,7 +337,7 @@ export default class ListItem extends Component {
 
                         <TouchableOpacity
                             style={{ hight: 40, width: '15%', justifyContent: 'center', alignItems: 'center' }}
-                        onPress={() => this.props.navigation.navigate('CartItem')}
+                            onPress={() => this.props.navigation.navigate('CartItem')}
                         >
                             <Icon name="shoppingcart"
 
@@ -349,19 +350,19 @@ export default class ListItem extends Component {
                     {/* </View> */}
 
                     {this.state.indicatorLoading ? (
-					<View style={[styles.centerElement, {height: 500}]}>
-						<ActivityIndicator size="large" color="#005ab3" />
-					</View>
-				) : (
+                        <View style={[styles.centerElement, { height: 500 }]}>
+                            <ActivityIndicator size="large" color="#005ab3" />
+                        </View>
+                    ) : (
 
-                    <ScrollView>
-                        {this.list1()}
+                            <ScrollView>
+                                {this.list1()}
 
-                        <View style={{height:65,width:'100%'}}></View>
+                                <View style={{ height: 65, width: '100%' }}></View>
 
-                    </ScrollView>
+                            </ScrollView>
 
-                 )} 
+                        )}
 
                     <Modal
                         animationType='fade'
@@ -370,23 +371,23 @@ export default class ListItem extends Component {
 
                     >
 
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'#000000aa',}}>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#000000aa', }}>
                             <View style={{ margin: 50 }}></View>
-                           
+
 
                             <View
-                            style={{ width: '90%', alignItems: 'flex-end', }}>
-                                <Icon  onPress={() => this.hideConfirm()} name="squared-cross" type="Entypo"
+                                style={{ width: '90%', alignItems: 'flex-end', }}>
+                                <Icon onPress={() => this.hideConfirm()} name="squared-cross" type="Entypo"
                                     style={{ color: '#b80000', fontSize: 30, position: 'absolute', zIndex: 999, right: 0, }} />
                             </View>
 
 
 
-                            <SingleItem 
-                             id={this.state.element1.ID}
-                             navigation={this.props.navigation}
-                             hideModal1={() => this.setState({modalVisible: false})} 
-                             />
+                            <SingleItem
+                                id={this.state.element1.ID}
+                                navigation={this.props.navigation}
+                                hideModal1={() => this.setState({ modalVisible: false })}
+                            />
 
 
 
@@ -475,7 +476,7 @@ const styles = StyleSheet.create({
 
     centerElement:
     {
-    flex:1,  justifyContent: 'center', alignItems: 'center'
-     },
+        flex: 1, justifyContent: 'center', alignItems: 'center'
+    },
 
 })

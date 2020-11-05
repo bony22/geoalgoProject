@@ -99,13 +99,13 @@ payment = async () =>{
                     </View>
                     
                     <View style={{
-                    height: 1,
-                    width:'100%',
-                    backgroundColor: '#cccccc',
-                    alignSelf: 'stretch',
-                    opacity:.4
-                   
-                }} />
+                        height: 1,
+                        width: '100%',
+                        backgroundColor: '#cccccc',
+                        alignSelf: 'stretch',
+                        opacity: .4
+
+                    }} />
 
                  
                     
