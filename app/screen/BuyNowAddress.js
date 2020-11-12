@@ -360,7 +360,7 @@ export default class BuyNowAddress extends Component {
                             <TouchableOpacity
                                 //  onPress={() => this.addtoCart()}
 
-                                style={{ justifyContent: 'center', width: '80%', borderWidth: 1 }}
+                                style={{ justifyContent: 'center', width: '80%',  }}
                             >
 
                                 <LinearGradient
