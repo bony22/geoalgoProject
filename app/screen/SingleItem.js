@@ -234,15 +234,6 @@ export default class SingleItem extends Component {
         </View>
 
 
-
-
-
-
-
-
-
-
-
       </View>
     );
   }

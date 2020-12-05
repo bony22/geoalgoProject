@@ -439,9 +439,6 @@ export default class ListItem extends Component {
                         />
 
 
-
-
-
                     </Modal>
                 </TouchableOpacity>
             </Container>
